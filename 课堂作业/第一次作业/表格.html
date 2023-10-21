@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse; 
+            /* 合并单元格边框 */
+        
+        }
+        th, td {
+            border: 2px solid black; /* 设置边框为2px宽度，黑色实线 */
+        }
+    </style>
+</head>
+<body>
+    <table style="border: 8px;">
+        <caption><h1 style="color: red;">会议日程</h1></caption>
+        <!-- 1 -->
+        <tr>
+            <th colspan="2">时间</th>
+            <th>地点</th>
+            <th>活动内容以及报告题目</th>
+            <th>负责人/主讲人</th>
+        </tr>
+        <!-- 2 -->
+        <tr>
+            <td colspan="2">6月13日全天周六</td>
+            <td>清华大学国际培训中心</td>
+            <td>代表全天报到</td>
+            <td>会务组</td>
+        </tr>
+        <!-- 3 -->
+        <tr>
+            <td rowspan="6">14日周日</td>
+            <td colspan="4" style="text-align: center;">开幕式</td>
+        </tr>
+        <!-- 4 -->
+        <tr>
+            <td>8:30-8:45</td>
+            <td style="text-align: middle;">逸夫楼一层报告厅</td>
+            <td>清华大学领导致辞</td>
+            <td> &nbsp;&nbsp;</td>
+        </tr>
+        <!-- 5 -->
+        <tr>
+            <td colspan="4">研讨报告主持人:孟少农教授</td>
+        </tr>
+        <!-- 6 -->
+        <tr>
+            <td>9:00-10:20</td>
+            <td rowspan="3">逸夫楼一层报告厅</td>
+            <td>报告1:大学如何拥抱创新的时代</td>
+            <td>邱勇教授</td>
+        </tr>
+        <!-- 7 -->
+        <tr>
+            <td>10:20-10:40</td>
+            <td colspan="2">自由交流(茶歇)</td>
+        </tr>
+        <!-- 8 -->
+        <tr>
+            <td>10:40-11:50</td>
+            <td>
+                报告2:计算思维应成为通识教育的一部分
+            </td>
+            <td>李晓明教授</td>
+        </tr>
+    </table>
+</body>
+</html>

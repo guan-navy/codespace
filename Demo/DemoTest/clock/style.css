@@ -1,0 +1,131 @@
+html{
+    background: pink;
+    /*可以放背景图相对于背景来说  */
+    font-size: 10px;
+}
+body{
+    margin: 0;
+    /* rem相等于前面html的文字大小 */
+    font-size: 2rem;
+    /* 设置为弹性容器 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* vh,view height,整个浏览器窗口高度,100vh100%整个屏幕的高度 */
+    height: 100vh;
+}
+.clock{
+    width: 30rem;
+    height: 30rem;
+    border: 7px solid #ffedbf;
+    border-radius: 50%;
+    box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.1),
+        inset 4px 4px 10px rgba(168, 145, 128, 0.6),
+        inset 4px 4px 10px rgba(201,175,155,0.2),
+        4px 4px 10px rgba(168, 145, 128, 0.6);
+    background-image: url(./lQDPJwZEMkYrYCzNAdnNAfSw4p1vZirbAesFH7TuE4AxAA_500_473.jpg);
+    background-size: 111%;
+    padding: 2rem;
+
+}
+.outer-clock-face{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    border: 1px solid #000;
+    position: relative;
+}
+/* 任何容器都可以使用两个伪元素 ,before和after*/
+.outer-clock-face::after,
+.outer-clock-face::before{
+    /* 伪元素必须放的关键字 */
+    content: '';
+    width: 10px;
+    height: 100%;
+   background: #596235;
+   position: absolute;
+   border-radius: 8px;
+   /* 相对宽度是从该元素的左边距离父容器的距离算 */
+   left: 50%;
+   margin-left: -5px;
+   /* transform: translate(-50%); 常见错位,相同关键字写两边前面的会被覆盖*/
+
+}
+.outer-clock-face::after{
+  
+    transform: rotate(90deg);
+    transform-origin: center center;
+}
+.marking{
+    width: 3px;
+    height: 100%;
+    background: #596235;
+    position: absolute;
+    left: 50%;
+    margin-left: -1.5px;
+}
+.marking-one{
+    transform: rotateZ(30deg);
+
+}
+.marking-two{
+    transform: rotateZ(60deg);
+    
+}
+.marking-three{
+    transform: rotateZ(120deg);
+    
+}
+.marking-four{
+    transform: rotateZ(150deg);
+    
+}
+
+.inner-clock-face{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: #ffebdb;
+    /* 提高层级 */
+    z-index: 2;
+    border-radius: 50%;
+    background-image: url(./lQDPJwZEMkYrYCzNAdnNAfSw4p1vZirbAesFH7TuE4AxAA_500_473.jpg);
+    background-size: 108%;
+}
+.inner-clock-face::after{
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #4d4b63;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.hand{
+    width: 50%;
+    height: 6px;
+    background: red;
+    border-radius: 6px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: -3px;
+    transform-origin: 100% 50%;
+    transform: rotate(90deg);
+}
+.hour-hand{
+    width: 30%;
+}
+.min-hand{
+    width: 40%;
+    height: 3px;
+}
+.second-hand{
+    background: #b3b3b3;
+    width: 45%;
+    height: 2px;
+}

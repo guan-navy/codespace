@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var arrTest1=['a','b']
+    console.log (arrTest1 [1])
+    console.log(arrTest1.length)
+    //in 关键字用来判断数组是否有第几个空间
+    console.log(1 in arrTest1)
+
+    //inclus判断是否含有该元素,含有返回true
+    console.log(arrTest1.includes('a'))
+
+    //indexof()判断数组当中是否含有该元素有返回下表没有返回-1从前往后数
+    var indexTest1=arrTest1.indexOf('a')
+    console.log(indexTest1)
+
+    //加个last,从后往前数
+    var indexTest1=arrTest1.lastIndexOf('b')
+   
+    arrTest1.push('')
+    arrTest1.pop()
+    // arrTest1.unshift('')
+    // arrTest1.shift('')
+    //往数组任意下标位置插入元素
+    arrTest1.splice(2,0,"hello world")//三个参数时,第二个参数没有意义
+    // arrTest1.splice(2,1)//从第二个位置包括,开始删除第二个表示删除的个数
+    for(var i;i<arrTest1.length;i++){
+        console.log(arr[i])   
+    }
+    //foreach循环语句
+    console.log(" foreach循环:")
+    arrTest1.forEach(function(item,index,arrTest1){
+        console.log(item,index,arrTest1)
+    })
+    //map循环
+    console.log("map():")
+    arrTest1.map ( function (item,i,arrTest1){
+        return item +'1'
+    })
+    //join 数组变成字符串打印
+    console.log("join():")
+    var a=arrTest1.join("-")
+    console.log(a)
+    var str='abcd'
+
+    //split字符串变数组
+
+    //数组反转
+    console.log("数组反转")
+  
+    var arrTest2=[1,2,3,4,5,678,9,0,1213]
+    console.log(arrTest2)
+    arrTest2.reverse()
+    console.log(arrTest2)
+    //排序
+    console.log("排序")
+    arrTest2.sort()
+    console.log(arrTest2)
+
+    //回调函数
+    console.log("回调函数")
+    arrTest2.sort(function(a,b){
+        return b-a
+    })
+
+    //数组拼接
+    console.log("数组拼接方法concat(数组名1,数组名2...)或者数组名1.concat(数组名2)")
+    var arrTset3=[10,20,30]
+    var arrTest4=[50,60,70,80,90]
+    console.log("数组3")
+    console.log(arrTset3)
+    console.log("数组4")
+    console.log(arrTest4)
+    var newArr=[].concat(arrTset3, arrTest4)
+    console.log("拼接之后")
+    console.log(newArr)
+
+
+
+    console.log("常规打印:")
+    console.log(arrTest1)
+    </script>
+</body>
+</html>

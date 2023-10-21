@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    /* 如果背景图加载不出来的话会先显示图片颜色 */
+    background: #4c4c4c url(./DSC_8360.jpg);
+    background-repeat: no-repeat;
+    /* 放大图片使得图片完全充满窗口等比例 */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     
+}
+.wrapper{
+    display: flex;
+    width: 850px;
+}
+.speed{
+    /*子容器要100%继承父容器的可用,即为wrapper中除去视屏所占宽度后的空间 */
+    flex: 1;
+    width: 50px;
+    background: #fff;
+    /* height: 430px; */
+    border-radius: 50px;
+    overflow: hidden;
+    margin: 15px;
+}
+.speed-bar{
+    width: 100%;
+    height: 16.3%;
+    background: linear-gradient(-170deg, #2376ae,#c16ecf 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* color是用来修饰文字颜色的 */
+    color: #fff;
+}

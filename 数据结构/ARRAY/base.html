@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //创建变量的两种方式直接赋值还有使用函数
+
+    //字符串字面量
+    var str ="hello world"
+    //创建字符串构造函数
+    var s =new String(123214324)
+    console.log(s)
+
+    //数组
+    var arr=[1,2,3,4]//静态初始化
+    var arr1=new Array()//动态初始化
+
+    var arr2=[1]
+    arr2[2]=3
+    arr2.length=2
+    console.log(arr2)
+    console.log("fill方法") 
+    var arr3=new Array(4).fill(1)
+    console.log(arr3)
+
+    //循环数组
+    for(var i=0;i<arr3.length;i++){
+        console.log(arr3[i])
+    }
+    var newArry=arr3.map(function(item,index,arr3){
+        return item+"map方法处理"
+    })
+    console.log(newArry)
+
+
+    //二维数组
+    var twoArr=[
+        [1,2,3],
+        [1,2,3],
+        [1,2,3],
+    ]
+    console.log("二维数组")
+    console.log(twoArr)
+
+    //二维数组遍历
+    console.log("foreach循环")
+    twoArr.forEach(function(item,index,twoArr){
+        item.forEach(function(item2,index2,twoArr2){
+            console.log(item2)
+        })
+    })
+
+    console.log(twoArr[0][2])
+    var u=undefined
+    var n=null
+    </script>
+</body>
+</html>
