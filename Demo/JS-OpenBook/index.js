@@ -31,9 +31,9 @@ window.onmousemove = function(e) {
     var deg = clamp((window.innerWidth / 2 - e.x + 300) / 300 * -90, -180, 0)
     front.style.transform = `rotateY(${deg}deg)`
    // 整本书立起来 60+deg /8
-   book.style.transform =`rotateX(((${deg}+60)/8)deg)`
-   // 卡片 deg/2
-   card.style.transform =`rotateX(-90deg)`
+   book.style.transform = `rotateX(${60 + deg / 8}deg)`
+   //卡片 deg / 2
+   card.style.transform = `rotateX(${deg / 2.5}deg)`
    // 阴影倾斜 deg/8
    shadow.style.transform =`skew(${deg/8}deg)`
 

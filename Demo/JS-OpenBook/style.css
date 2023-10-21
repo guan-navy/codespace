@@ -68,19 +68,12 @@
   }
 
   .back-cover.outside{
-    transform: translateZ(3px);
+    transform: translateZ(-3px);
   }
   .back-cover .inside{
     background-color: #d93e2b;
   }
-  .card{
-    width: 196px;
-    height: 132px;
-    position: absolute;
-    left: 60px;
-    top: 60px;
-    transform-origin: 0 100%;
-  }
+  .card,
   .shadow{
     width: 196px;
     height: 132px;
