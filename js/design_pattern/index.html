@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // JS 强大的表现力 语言精粹 对象
+    //对象字面量
+    //数据类型 简单数据类型 引用数据类型 
+
+    //对象的本质是什么 属性+方法
+    //对象方法内部this指向本身
+
+    //设计模式 复杂,面向对象要能够搞定
+    //字符串同一单引号或者是双引号
+        const xqm={
+            name:"肖启明",//key value
+            age:20,
+            hometown:"吉安",
+            isSingle:false    
+        }
+        const kjh={
+            name:"况君豪",//key value
+            age:18,
+            hometown:"南昌",
+            isSingle:true,
+            sendFlower(receiver){
+                console.log(this.name+"送花给"+receiver.name)
+                receiver.receiveFlower(this);
+            }
+        }
+        const xm={
+            name:"小美",
+            emotion:50,
+            receiveFlower(sender){
+                //字符串模版先编译再执行
+                console.log(`${this.name}收到${sender.name}的花`)//es6 代码更加优雅,提升可读性,命令式代码变成表达式代码
+                // console.log(this.name+"收到"+sender.name+"的花了")
+                this.emotion=this.emotion+10
+                if(this.emotion<80){
+                    console.log("不要,送花给我干嘛")
+                }else{
+                    console.log("万达走一波")
+                }
+            }
+        }
+
+        //代理模式
+        const xh={
+            name:"小花",
+            //method 接口Interface
+            receiveFlower(sender){
+                // console.log(this.name+"收到"+sender.name+"的花了")
+                // if(sender.name=="况君豪"){
+                //     console.log("让我们在一起吧")
+                // }
+                if(xm.emotion>=80){
+                    xm.receiveFlower(sender)
+                }else{
+                    //定时器
+                    setTimeout(function(){
+                        xm.emotion=99
+                        xm.receiveFlower(sender)
+                    },2000)
+                }
+                
+            }
+          
+        }
+
+
+    </script>
+</body>
+</html>
