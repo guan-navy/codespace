@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .weui-btn{
+            /* 内部元素可以根据该元素来定位 */
+            position: relative;
+            display: block;
+            width: 184px;
+            /* margin: 0 auto; */
+            margin-left: auto;
+            margin-right: auto;
+            padding: 12px 24px;
+            /* 盒子模型的设计大厂必考*/
+            block-size: border-box;
+            font-size: 17px;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            line-height: 1.41176471;
+            border-radius: 8px;
+            -webkit-tap-highlight-color:rgb(0,0,0,0) ;
+            /* 无法选中不能够去复制文字的值 */
+            user-select: none;
+        }
+        .weui-btn_primary{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- css国际命名规范 weui-btn Block 状态 _primary -->
+    <!-- button 太复杂,有很多属性 -->
+    <!-- 让不跳转 -->
+   
+    <a href="javascript:;"class="weui-btn weui-btn_primary">主要操作</a>
+  
+   
+
+</body>
+</html>
