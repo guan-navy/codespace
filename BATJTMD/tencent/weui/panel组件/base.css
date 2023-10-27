@@ -1,0 +1,49 @@
+.page{
+    /* 手机滚屏阅读的常见操作 */
+    /* 沾满整个页面的写法 */
+    /* 超出父级容器才会出现滚动条 */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* 超出则滚动 */
+    overflow-y:auto ;
+    /* 让滚动顺滑 */
+    /* 移动端浏览器前缀都是-webkit
+        overflow-scrolling在实验阶段可能有的不支持
+    */
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;/* IE盒子模型 */
+    z-index: 1;
+}
+body{
+    /*为什么要去设置变量，方便统一一起更改 皮肤的更换*/
+    color: rgba(255, 255, 255, 0.8);
+    --weui-BG-0:#111;
+    --weui-BG-2：#191919;
+    --weui-FG-1: rgba(255, 255, 255, 0.5);
+}
+.page,body{
+    /* weui技术激进css4变量 */
+    background-color: var(--weui-BG-0);
+
+}
+.page_hd{
+    padding: 4px;
+
+}
+.page_title{
+    text-align: left;
+    font-size: 20px;
+    font-weight: 400;
+}
+.page_desc{
+    margin-top: 4px;
+    color: var(--weui-FG-1);
+    text-align: left;
+    font-style: 14px;
+}
+.page_bd{
+    padding-bottom: 20px;
+}

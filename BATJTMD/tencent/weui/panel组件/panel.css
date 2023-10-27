@@ -1,0 +1,21 @@
+.weui-panel{
+    /* --项目名-BG或者FG-编号 */
+    background-color: var(--weui-BG-2);
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+/* 第一个没必要mt */
+/* 其余的会和前面会panel mt */
+.weui-panel:first-child 
+{
+    margin-top: 0px;
+}
+.weui-panel__hd{
+    /* 上右下左原则 */
+    padding: 16px 16px 13px;
+    color: var(--weui-FG-0);
+    font-size: 15px;
+    font-weight: ;
+    
+}

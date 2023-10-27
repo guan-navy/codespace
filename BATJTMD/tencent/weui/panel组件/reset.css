@@ -1,0 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* 无论在什么时候不能给input设置outline，一些交互效果要自己写 */
+    outline: 0;
+    /* 盒子大小的计算方式 */
+    /* box-sizing: border-box;盒子模型的方式切换，没有声明的话是IE盒模型 */
+
+}
