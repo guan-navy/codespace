@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+           
+            width: 200px;
+            height: 100px;
+            float: left;
+            list-style: none;
+            
+        }
+        /* 选中第几个li而不是选中ul */
+        li:nth-child(1){background-color: #de1a1a;
+
+        }
+        li:nth-child(2){background-color: rgb(9, 227, 82);
+
+        }
+        li:nth-child(3){background-color: #eaf605;
+
+        }
+        /* ul{
+            height: 200px;
+        } */
+        .text{
+            width: 100px;
+            height: 100px;
+            background: #0101e0;
+            /* clear: both; */
+        }
+        /* 为浮动准备的  */
+         /* .clear::after{
+            content: '';
+            clear: both;
+            display:block;
+        } */
+        ul{
+            /* 超出自适应 */
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="clear">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <div class="text">hello world</div>
+    </div>
+    
+</body>
+</html>
