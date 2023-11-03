@@ -1,0 +1,15 @@
+<script>
+    //考察this关键字
+    Person.prototype={
+        name: 'hanghang',
+        sayName:function(){
+            console.log(this.name)
+        }
+    }
+    function Person(){
+        console.log(this.name)
+    }
+
+     var p=new Person()
+     p.sayName
+</script>
