@@ -1,5 +1,5 @@
 Car.prototype={
-    lan:4900,
+lan:4900,
 name:'BMW'
 
 }

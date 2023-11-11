@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* 画布的宽高是在变化的 */
         #canvas{
             position: absolute;
         }
@@ -13,19 +12,20 @@
 </head>
 <body>
     <div class="wrap">
-        <h1>听妈妈的话 --周杰伦 </h1>
+        <h1>听妈妈的话</h1>
         <div class="main">
-            <canvas id="canvas"></canvas>
-            <video src="./mv.mp4" id="video" controls width="720" height="480"></video>
+            <canvas id = "canvas"></canvas>
+            <video src="mv.mp4" id= "video" width="720" height="480" controls></video>
         </div>
+
         <div class="content">
             <input type="text" id="text">
             <input type="button" value="发弹幕" id="btn">
-            <input type="color">
-            <input type="range" max="40" min="20">
+            <input type="color" id="color">
+            <input type="range" id="range" max="666" min="20">
         </div>
+
     </div>
-    <!-- 一般js的先执行阻塞html的加载,如果在js中获取元素的话,会报错 -->
-    <script src="./index.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

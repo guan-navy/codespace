@@ -34,3 +34,7 @@
  # call
  # arguments 
  - 所有函数传入参数的统称
+
+
+ # 判断数组的方法
+ Array.isto

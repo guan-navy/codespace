@@ -22,13 +22,13 @@ foo()  */
 //练习,this默认绑定需要找到函数生效的词法作用域,这种情况下都是全局作用域
     var a=1
     function foo(){
-        var b=2
+        var a=2
         function bar(){
             baz()
         }
         function baz(){
             console.log(this.a)
         }
-       
+       bar()
     }
     foo()

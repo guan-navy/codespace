@@ -25,9 +25,11 @@ Function.prototype.myCall = function(context){
 
     }
     let args=Array.from(arguments).slice(1)//获取call传入的其它参数,将类数组转化伪数组才可以使用slice方法
+    //let args=[...arguments]
     context.fn=this
-    context.fn(...args)//触发隐式绑定规则
+    let res=context.fn(...args)//触发隐式绑定规则
     delete context.fn//删除这个多余添加的属性
+    return res//加上访问值
  }
  foo.call(obj,1,2,3)
 

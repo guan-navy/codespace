@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="wrap">
+        <button id = 'btn'>确认</button>
+    </div>
+    <script>
+        let wrap = document.getElementById('wrap');
+        let btn = document.getElementById('btn');
+        const disabledElemrnts = new WeakSet()
+        disabledElemrnts.add(btn)
+        btn.addEventListener('click',() => {
+            wrap.removeChild(btn)
+        })
+    </script>
+</body>
+</html>

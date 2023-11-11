@@ -5,4 +5,4 @@ function Car(){
 
 }
 var car=new Car();
-console.log(car.constructor)//返回构造函数
+console.log(Car.prototype.constructor)//返回构造函数
