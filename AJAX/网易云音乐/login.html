@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网易云登录</title>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4336206_veuqmwgkoa.css">
+    <style>
+        
+        .hd.title{
+           
+            text-align: center;
+        }
+        .hd.back{
+            
+            float: left;
+        }
+        .hd.font{
+            display: inline-block;
+        }
+        .hd.tubiao{
+            display: inline-block;
+        }
+        .iconfont.icon-wangyiyunyinle{
+            color: red;
+        }
+        /* 输入框去边框 */
+        input {
+        background-color: #f8f8f8;
+        border: none; /* 或使用 border-width: 0; */
+        padding: 15px;
+        
+        display: inline-block;
+        }
+        .bd{
+            margin-top: 50px;
+            padding: auto;
+            margin-left: 80px;
+        }
+        input:focus {
+        outline: none;
+        }
+        .input.password{
+            text-align: center;
+        }
+        .input.email{
+            text-align: center;
+        }
+        a{
+            user-select: none;
+        }
+        #forget{
+            width: 180px;
+            text-align: right;
+        }
+        #forget a{
+            font-size: 12px;
+            color:#7b7a7a;
+            text-decoration: none
+        }
+        #confirm{
+            display: flex;
+            width: 190px; ;
+            height: 40px;
+            text-align: center;
+            justify-content: center;
+            background-color: red;
+            border-radius: 5px;
+        }
+        #confirm a{
+            font-size: 16px;
+            color:#d4d2d2;
+            text-decoration: none
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <div class="hd back">
+            <i class="iconfont icon-fanhui"></i>
+        </div>
+        <div class="hd title">
+            <div class="hd tubiao">
+              <i class="iconfont icon-wangyiyunyinle"></i>
+            </div>
+            <div class="hd font">网易云音乐</div>
+        </div>
+    </div>
+    <div class="bd">
+        <div class="input eamil" > 
+            <input type="text" id="email" placeholder="登录邮箱">
+        </div>
+        <div class="input password" >
+            <input type="password" id="password" placeholder="密码">
+        </div>
+        <div id="confirm"> 
+            <a href="#">登录</a>
+        </div>
+        <div id="forget"><a href="">忘记密码</a></div>
+    </div>
+    <script src="./login.js"></script>
+</body>
+</html>
