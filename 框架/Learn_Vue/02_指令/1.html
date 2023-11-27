@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="tel">
+        <h2>{{message}}--{{message}}</h2>
+        <h2>{{count*2}}</h2>
+        <h2 >{{message}}</h2>
+        <!-- <h1>{{getReverse()}}</h1> -->
+        <h2>{{emo?'难过':'开心'}}</h2>
+        <button @click="change"> 切换心情</button>
+    </template>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            template: '#tel',
+            data(){
+                return{
+                    message:'Hello 阳阳',
+                    count:100,
+                    emo:false
+                }
+            },
+            methods:{
+                getReverse() {
+                    return this.message.split(' ').reverse().join(' ')
+                },
+                change(){
+                    // if(this.emo ) this.emo =false
+                    // else this.emo =true
+                    this.emo = !this.emo
+                }
+
+            }
+        }
+        Vue.createApp(App)
+        .mount('#app')
+    </script>
+</body>
+</html>

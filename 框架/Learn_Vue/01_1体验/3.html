@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <!-- 文档片段 -->
+    <template id="tel">
+        <div>
+            <h1>你好 {{message}}</h1>
+            <h2>{{count}}</h2>
+            <button @click="add">+1</button>
+            <button @click="minus">-1</button>
+        </div>
+    </template>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            template:'#tel',
+            data:function(){
+                return {
+                    message:'管海军',
+                    count:123
+                }
+            },
+            methods:{
+                add:function(){
+                    //不能使用箭头函数,里面的this指向windows
+                    this.count++;//更新html但是只是更新更改了的地方
+                    console.log(this);
+                },
+                minus:function(){
+                    this.count--;
+                }
+
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
