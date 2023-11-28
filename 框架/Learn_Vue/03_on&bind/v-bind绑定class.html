@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            color: red;
+        }
+        .title{
+            font-size: 89px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <!-- 文档片段html5自带,会被vue读取,里面的内容并不是,真正的html -->
+    <template id="my-app">
+       <div :class="className">康康</div>
+       <div :class="{'active':isActive}">smoggy</div>
+       <button @click="change">切换</button>
+       <div :class="{'active':!isActive,'title':isActive}">但总</div>
+
+       <!-- 已有类名,增加额外类名 -->
+       <div class="lang" :class="{'active':!isActive,'title':isActive}">浪哥</div>
+
+       <!-- 将类名变为对象直接把对象加到标签内,通过value值来控制加入的类名的有无 -->
+       <div class="baobao" :class="classObj">旭旭宝宝</div>
+
+       <!-- 通过函数调用获取类名 -->
+       <div class="baby" :class="getClas()">阳阳</div>
+       
+       <!-- 通过数组获取类名 -->
+       <div :class="['feng','baby',className]">冯总</div>
+
+       
+        <!-- 数组当中通过三元运算符来在数组当中决定加与不加 -->
+       <div :class="['feng',isActive?'active':'']"></div>
+
+
+    </template>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            template:'#my-app',
+            data(){
+                return{
+                   className: 'userName',
+                   isActive: true,
+                   classObj:{
+                    active:true,
+                    title:true
+                   }
+                }
+            },
+            methods:{
+               change(){
+                this.isActive=!this.isActive
+               },
+               getClas(){
+                return 'yangyang'
+               }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

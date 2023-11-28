@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <!-- 文档片段html5自带,会被vue读取,里面的内容并不是,真正的html -->
+    <template id="my-app">
+        <h1>{{msg}}</h1>
+        <img v-bind:src="imgUrl" alt="" @click="change">
+        <a :href="link">百度一下</a>
+    </template>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            template:'#my-app',
+            data(){
+                return{
+                    msg:'hello world',
+                    imgUrl:'https://img1.baidu.com/it/u=3519458463,1887460190&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
+                    link:'https://www.baidu.com/?tn=15007414_20_dg'
+                }
+            },
+            methods:{
+                change(){
+                    imgUrl=''
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

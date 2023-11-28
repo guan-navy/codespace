@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <!-- 文档片段html5自带,会被vue读取,里面的内容并不是,真正的html -->
+    <template id="my-app">
+
+       <div :style="{color:fontColor,fontSize:fontSize}">biangbiang</div>
+
+       <div :style="styleObj"> hanghang </div>
+
+       <div :style="[styleObj,styleObj1]">junjun</div>
+    </template>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            template:'#my-app',
+            data(){
+                return{
+                    fontColor:'blue',
+                    fontSize:'50px',
+                    styleObj:{
+                        color:'green',
+                        fontWeight:'bold'
+                    },
+                    styleObj1:{
+                        fontSize:'80px',
+                        backgroundColor:'red'
+                    }
+                }
+            },
+            methods:{
+               
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+<template id="my-app">
+    <button v-on:click="handle">按钮</button>
+    <button @click="add">{{count}}</button>
+    <div @mouseenter="enter" style="width: 100px;height: 100px;border: 1px solid black;"></div>
+
+    <div @="{click: handle, mouseenter: enter}" style="width: 100px;height: 100px;border: 1px solid #000;"></div>
+
+    <!-- 使用点击事件函数传入实参 -->
+    <div @click="handelClick($event,'军儿',18)">按钮</div>
+</template>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            template:'#my-app',
+            data(){
+                return{
+                count:0
+                }
+            },
+            methods:{
+                add(){
+                    this.count++
+                },
+                handle(){
+                    console.log('点击了该页面');
+                },
+                enter(){
+                    console.log('鼠标移入');
+                },
+                handelClick(e,name,age){
+                    console.log(e,name,age);
+                }
+               
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>
