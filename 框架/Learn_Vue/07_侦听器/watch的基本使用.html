@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+    <template id="my-app">
+        <h2>今日温度{{temp}}</h2>
+        <h3>建议穿:{{suggestion}}</h3>
+        <button @click="add">+</button>
+        <button @click="minus">-</button>
+
+    </template>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            template: '#my-app',
+            data() {
+                return {
+                    temp: 10,
+                    suggestion: '初始值'
+                }
+            },
+            methods: {
+                add() {
+                    this.temp += 5
+
+                },
+
+                minus() {
+                    this.temp -= 5
+
+                }
+            },
+            watch: {
+             temp:{
+               handler:function(cur,pre) {
+                console.log(cur,pre);
+                if(cur>=30){
+                    this.suggestion='短袖'
+                }else if(cur<=0){
+                    this.suggestion='羽绒服'
+                }else{
+                    this.suggestion='夹克'
+                }
+            },
+                immediate:true//立即执行
+        }
+        }
+    }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+
+</html>
