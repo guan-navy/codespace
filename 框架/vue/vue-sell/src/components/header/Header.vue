@@ -12,22 +12,33 @@
 
                 <div class="description">蜂鸟转送</div>
                 <div class="support">
-                    <span class="text">在线支付满28减5</span>
+                    <!-- 父组件给子组件传值 -->
+                    <SupportIcon :size="1" :type="0"></SupportIcon>
+                    <span class="text">满28减5</span>
                 </div>
             </div>
             <div class="support-count">
                 <span class="count">5个</span>
-                <i class="iconfont">></i>
+                <i class="iconfont icon-xuanzetiaozhuanyou_xian24"></i>
             </div>
         </div>
         <div class="bulletin-wrapper">
 
         </div>
+        <div class="bg"
+            style="background-image: url('http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg');">
+            <br>
+            <br>
+        </div>
     </div>
 </template>
 
 <script>
+import SupportIcon from '@/components/support-icon/Support-icon.vue'
 export default {
+    components: {
+        SupportIcon
+    }
 
 }
 </script>
@@ -38,6 +49,7 @@ export default {
 
 .header {
 
+    position: relative;
     background: @color-background-ss;
 
     .content-wrapper {
@@ -64,6 +76,7 @@ export default {
                 display: flex;
                 align-items: center;
                 margin-bottom: 8px;
+
                 .brand {
                     // 弹性容器的子元素也可以设置宽高
                     width: 30px;
@@ -77,15 +90,19 @@ export default {
                     font-size: @fontsize-large;
                 }
             }
-            .description{
-                font-size:@fontsize-small;
+
+            .description {
+                font-size: @fontsize-small;
                 margin-bottom: 8px;
             }
-            .support{
+
+            .support {
                 display: flex;
                 align-items: center;
-                .text{
+
+                .text {
                     font-size: @fontsize-small-s;
+                    margin: 4px;
                 }
             }
         }
@@ -97,19 +114,38 @@ export default {
             padding: 0 8px;
             line-height: 24px;
             text-align: center;
-            background:@color-background-sss;
+            background: @color-background-sss;
             border-radius: 14px;
             display: flex;
             align-items: center;
             color: @color-white;
-            .count{
-               font-size:  @fontsize-small-s;
-               .iconfont{
-                font-size:  @fontsize-small-s;
-                margin-left: 2px;
-               }
+
+            .count {
+                font-size: @fontsize-small-s;
+
+                .iconfont {
+                    font-size: @fontsize-small-s;
+                    margin-left: 2px;
+                }
             }
+
+
         }
+
     }
 
-}</style>
+    .bg {
+        
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        // background-image: url('http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg');
+        background-size: 100% 100%;
+        filter: blur(10px);
+        z-index: -1;
+    }
+
+}
+</style>
