@@ -8,3 +8,7 @@ git add. 提交所有文件到git的暂存区
 git commit -m '你的注解' 将暂存区的代码提交到 
 git push origin master 将文件推送到远程仓库
 -test
+
+
+git is a version control system
+git is free software
