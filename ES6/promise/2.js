@@ -30,7 +30,7 @@ function marry (){
 }) */
 xq().then((res)=> {
     console.log(res)
-    return marry()
+     marry()
 
 })//.then能够返回一个默认promise对象,写了return一个promise对象会覆盖掉,不写就用自己默认的
 .then((res2)=>{

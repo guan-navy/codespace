@@ -16,23 +16,22 @@ confir.addEventListener('click',()=>{
     .then(response => response.json())
     .then(result => {
         if(result.message=='成功'){
-            const resultElement = document.createElement('p');
+            const newElement = document.createElement('i');
                
 
                 // 将新元素追加到页面中的容器中
-                document.getElementById('resultContainer').appendChild(resultElement);
+                document.body.appendChild(newElement);
 
-                // 创建一个新的 <div> 元素，并设置样式
-                const createdElement = document.createElement('i');
+                
                 createdElement.textContent = '新创建的元素';
 
                 // 设置元素样式
-                createdElement.style.position = 'absolute';
-                createdElement.style.top = '50%';
-                createdElement.style.left = '50%';
-                createdElement.style.backgroundColor = '#e0e0e0';
-                createdElement.style.padding = '10px';
-                createdElement.style.border = '1px solid #ccc';
+                newElement.style.position = 'absolute';
+                newElement.style.top = '50%';
+                newElement.style.left = '50%';
+                newElement.style.backgroundColor = '#e0e0e0';
+                newElement.style.padding = '10px';
+                newElement.style.border = '1px solid #ccc';
 
                 // 将新创建的元素追加到页面中的容器中
                 document.getElementById('resultContainer').appendChild(createdElement);

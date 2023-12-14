@@ -32,6 +32,8 @@ console.log(map.get(obj1));
 
 //遍历
 console.log('遍历');
+let i=1
 map.forEach((value,key,map)=>{
-    console.log(value,key,map);
+   
+    console.log(value,key,map,i++);
 })

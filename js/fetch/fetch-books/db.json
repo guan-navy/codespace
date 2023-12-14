@@ -1,0 +1,41 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "你不知道的JavaScript",
+      "author": "管海军"
+    },
+    {
+      "id": 2,
+      "title": "JavaScript高级程序设计",
+      "author": "周翰林"
+    },
+    {
+      "title": "Javascript you don't know",
+      "author": "biangbiang",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comments",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "学习了",
+      "postId": 1
+    },
+    {
+      "body": "原来如此",
+      "postId": "1",
+      "id": 3
+    },
+    {
+      "body": "简洁明了",
+      "postId": "2",
+      "id": 4
+    }
+  ]
+}

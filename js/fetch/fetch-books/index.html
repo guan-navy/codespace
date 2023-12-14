@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 尽量使用语义化标签 -->
+        <table class="table table-striped">
+            <caption>文章表</caption>
+            <!-- thead更加具有语义化表头 -->
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>标题</th>
+                    <th>作者</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <form name="postForm">
+            <div class="from-group">
+                <label for="titleInput">标题</label>
+                <input type="text" class="form-control" id="titleInput" placeholder="输入标题">
+            </div>
+            <div class="from-group">
+                <label for="authorInput">作者</label>
+                <input type="text" class="form-control" id="authorInput" placeholder="输入标题">
+            </div>
+            <button class="btn btn-default" type="submit">添加</button>
+        </form>
+        <form name="deleteForm">
+            <div class="from-group">
+                <label for="titleInput">要删除的书籍ID</label>
+                <input type="text" class="form-control" id="idInput" placeholder="输入id">
+            </div>
+            <button class="btn btn-default" type="submit">删除</button>
+        </form>
+    </div>
+    <script>
+        fetch('http://localhost:3000/posts')
+            .then(res => res.json())
+            .then(data => {
+                document.querySelector('.table tbody').innerHTML =
+                    data
+                        .map(posts => `
+                <tr>
+                   <td>${posts.id}</td>
+                  <td>${posts.title}</td>
+                  <td>${posts.author}</td>
+                </tr>
+              `)
+                        .join('')
+            })
+        const oForm = document.forms["postForm"];
+        oForm.addEventListener('submit', function (event) {
+            // 阻止默认行为
+            event.preventDefault();
+            const newPost = {
+                "title": oForm.querySelector('#titleInput ').value,
+                "author": oForm.querySelector('#authorInput').value
+            }
+            // console.log(newPost);
+            fetch('http://localhost:3000/posts ', {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newPost)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                })
+
+        })
+        const dForm = document.forms["deleteForm"];
+        dForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            let id = dForm.querySelector('#idInput').value;
+            fetch(`http://localhost:3000/posts/${id}`, {
+                method: 'delete',
+            })
+             
+
+        })
+    </script>
+</body>
+
+</html>

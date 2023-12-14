@@ -1,0 +1,4 @@
+/* pages/cars/cars.wxss */
+.hero{
+  background-color: red;
+}

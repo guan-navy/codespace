@@ -2,9 +2,9 @@ function a (){
     return new Promise((resolve, reject) =>{
         setTimeout(() => {
             console.log('a');   
-            resolve()
-            // reject('错误');
-           }, 1000);
+            // resolve()
+             reject('a错误');
+           }, 500);
            
     })
     
@@ -15,7 +15,7 @@ function b(){
         setTimeout(() => {
             console.log('b');   
             resolve()
-           }, 500);
+           }, 1100);
           
     })
    
@@ -35,8 +35,16 @@ function c (){
 
 
 //竞速
-Promise.race([a(),b()])
-.then(c)
+// Promise.race([a(),b()])
+// .then(c)
 // .catch((err) =>{
 // console.log(err);
 // })
+
+a().then((res)=>{
+    console.log(res);
+    return b()
+})
+.catch((err)=>{
+    console.log(err)
+})
