@@ -44,3 +44,44 @@
 - 图标字体库使用
    - 要用到哪些图标?
       import{}from''
+
+- 断点调试法
+   当我们开始想写项目的时候,在github 上找排名靠前的vue-music 看不懂的地方 一路更下去,优秀的代码学习方法
+   -组件和数据接口分离 /components
+      让组件干净 template
+   - 数据统一管理 utils
+      - api.js
+      业务接口,该函数名字自带解释功能
+      - http.js
+         复用axios的底层封装
+- 开发文档
+   - 前端要响应式数据
+   - 数据请求要分离到utils/api.js
+   - 后端是一个黑盒子
+      1. 基于http
+         axios提供get
+      2. 看后端给的开发文档
+         /url GET/post params{}
+         response什么
+   - 自己的项目
+     - Laf做后端
+      - 数据库
+      - 云函数
+      - 开发文档 亮点
+
+- 有哪些组件,组件的分类
+      - 父子组件
+
+      - 页面组件
+         vue-router views/
+      - 通用组件
+         components/common/
+      - 框架UI组件
+
+      - 业务组件 /components
+- 路由的组件流程
+ - router 配置文件
+ - views /页面级别文件
+ - 路由接管了应用
+   会有好多页面的,views比components更加高级
+ - App.vue router
