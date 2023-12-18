@@ -17,3 +17,8 @@
     我们使用git status 了解到当前仓库状态
     对比修改
     git diff 在add之前,再次确认你那里修改了
+
+- gitee 和github切换
+ - 提交地址切换
+ git remote set-url origin https://gitee.com/Guan-Yi-314/code-space.git
+ git remote -v       查看当前地址
