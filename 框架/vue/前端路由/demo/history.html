@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            display: flex;
+        }
+
+        li {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><a href="/home">首页</a></li>
+        <li><a href="/about">关于</a></li>
+    </ul>
+    <div id="routerView">
+        放一个代码片段
+    </div>
+
+    <script>
+        const routerView = document.getElementById("routerView");
+        const routes = [
+            {
+                path: '/home',
+                component: '首页页面内容'
+            },
+            {
+                path: '/about',
+                component: '关于页面内容'
+            }
+        ]
+        const links = document.querySelectorAll('li a')
+        // console.log(links);
+        links.forEach(a => {
+            a.addEventListener('click', (e) => {
+                // console.log(e);
+                //阻止了a标签的默认跳转行为
+                e.preventDefault();
+                //添加一种可以修改url又不造成页面刷新
+                history.pushState(null, '', a.getAttribute('href'));
+                //映射对应的DOM
+                onPopState()
+            })
+        })
+        function onPopState() {
+            // console.log(location.pathname);
+            routes.forEach((item) => {
+                if (item.path == location.pathname) {
+                    routerView.innerHTML = item.component
+                }
+            });
+        }
+        function onLoad() {
+            onPopState()
+            const links = document.querySelectorAll('li a')
+            links.forEach(a => {
+                a.addEventListener('click', (e) => {
+                    e.preventDefault()  // 阻止了a标签的默认跳转行为
+                    // 添加一个可以修改url又不造成页面刷新
+                    history.pushState(null, '', a.getAttribute('href'))
+                    // 映射对应的dom
+                    onPopState()
+                })
+            })
+        }
+        window.addEventListener('DOMContentLoaded', onLoad)
+        window.addEventListener('popstate', onPopState)
+    </script>
+</body>
+
+</html>
