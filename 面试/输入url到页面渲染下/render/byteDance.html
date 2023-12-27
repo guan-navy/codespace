@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        //执行一次回流
+        
+        let el = document.getElementById('app')
+         //先执行offsetWidth,强制执行渲染队列中的任务但是,任务队列为空,因为浏览器优化策略所以只执行一次回流 
+        el.style.width = (el.offsetWidth +1)+'px'
+        el.style.width = 1+'px' // 触发重绘
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="app">hello</div>
+    <script>
+      let app = document.getElementById("app");
+      app.style.position = "relative";
+
+      // // 导致5次回流,开销过大(微秒级)
+      // app.style.height= '100px'
+      // console.log(app.offsetHeight);//迫使浏览器渲染队列强制刷新
+      // app.style.width ='200px'
+      // console.log(app.offsetWidth);
+      // app.style.left = '10px'
+      // console.log(app.offsetLeft);
+      // app.style.top = '10px'
+      // console.log(app.offsetTop);
+
+
+        // 一次回流
+      app.style.height = "100px";
+
+      app.style.width = "200px";
+
+      app.style.left = "10px";
+
+      app.style.top = "10px";
+      console.log(app.offsetLeft);
+      console.log(app.offsetWidth);
+      console.log(app.offsetTop);
+      console.log(app.offsetHeight);
+
+
+      // 一次回流
+      // app.style.cssText = 'height=100px; width =200px left = 10px ;top = 10px'
+
+      //或者将样式全部写在在css文件中的类名选择器
+    </script>
+  </body>
+</html>
