@@ -6,17 +6,48 @@ const routes =
     {
         path : '/login', //要以斜杠开头
         name : 'login-page',
+        meta:{
+            title : '登入'
+        },
         component : () => import('../assets/views/login.vue')
     },
     {
-        path : '/register', //
+        path : '/register', 
         name :'register-page',
+        meta:{
+            title : '注册'
+        },
         component : () => import('../assets/views/register.vue')
+    },
+    {
+        path : '/noteclass', 
+        name :'noteclass-page',
+        meta:{
+            title : '笔记分类'
+        },
+        component : () => import('../assets/views/NoteClass.vue')
     }
 ]
 const router = createRouter({
     history : createWebHistory(),
     routes
 })
+//路由守卫
+//白名单路径
+// 路由守卫
+const whitePath = ['/login','/register']
+router.beforeEach((to,from,next) => {
+    document.title = to.meta.title
 
+    if(!whitePath.includes(to.path)) { // 你想去详情页
+        if(!sessionStorage.getItem('userInfo')){ // 没登入
+            router.push('./login')
+            return
+        }
+        next()
+        return 
+    }
+    next()
+})
+    
 export default router
