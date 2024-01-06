@@ -29,3 +29,44 @@
  - props
  - store
 - 函数的参数
+
+## vue考题
+- <component : is "comName"/>
+ 循环或者动态输出组件
+- <template/>
+
+## 项目亮点
+- 带有角色校验的菜单
+  - 菜单
+  el-emnu>el-submenu>el-menu-item
+ - 选中当前菜单
+ :default-active= "route-path"
+ - 哪些菜单可看到
+ 指令?自定义指令
+ store->permiss rolelist user includes?
+ 添加一个数据项key  任何组件都可以调用
+ localStorage读取
+ localStorage 允许你在用户的浏览器中存储键值对，并且这些数据可以在同一域名下的页面间共享。在Element Plus框架中，你可以使用localStorage来存储和检索与应用程序相关的信息，例如用户的首选项、状态或其他需要在会话之间保持持久性的数据。
+
+## 考题
+- 自定义指令
+- 自定义指令
+ app.directives(name)
+ v-name
+ mounted(el,bingding)
+ el['hidden'] = true
+ el.style.opacity = 0 v-show
+
+ ## 项目难点
+  - 多组件状态的共享与设计
+   - vuex 和pinia
+   用pinia
+   学vuex modules 很灵活 加一个 defineStore
+   没有vuex 的树状约束 执行函数就拿下hook
+   语法很简洁
+   学vuex 设计模式 state mutation action getter 安全
+   -学习过一些项目 github开源 vue-music
+   vue -admin
+   - 因为当我在多个组件 特别是兄弟跨页面级别组件
+   有共享状态需求的时候,我封装了一个store函数
+   原来是用ref+props+emits换成store

@@ -1,33 +1,37 @@
 <template>
     <div class="header">
-        <div class="collapse-btn"
-        @click="collapseChange"
-        >
-        <el-icon v-if="collapse"><Expand/></el-icon>
-            <el-icon v-else> <Fold/></el-icon>
+        <div class="collapse-btn" @click="collapseChange">
+            <el-icon v-if="collapse"><Expand /></el-icon>
+            <el-icon v-else><Fold /></el-icon>
         </div>
         <div class="logo">后台管理系统</div>
         <div class="header-right">
             <div class="header-user-con">
-                <div class="btn-bell"
+                <div class="btn-bell" 
                 @click="router.push('/tabs')">
                     <el-tooltip
                         effect="dark"
                         :content="message?`有${message}条未读消息`:`消息中心`"
                         placement="bottom"
                     >
-                        <i class="el-icon-lx-notice" style="width: 20px; height: 20px;"></i>
+                        <i class="el-icon-lx-notice" 
+                        style="width:20px;height:20px;"></i>
                     </el-tooltip>
-                    <span class="btn-bell-badge" v-if="message">{{ message }}</span>
+                    <span class="btn-bell-badge" v-if="message">2</span>
                 </div>
                 <el-avatar 
-                    class="user-avatar" 
-                    :size="30" 
-                    :src="imgurl">
+                class="user-avatar"
+                :size="30"
+                :src="imgurl"
+                >
                 </el-avatar>
-                <el-dropdown class="user-name" tirgger="click" @command="handleCommand">
+                <el-dropdown 
+                    class="user-name" 
+                    trigger="click"
+                    @command="handleCommand"
+                >
                     <span class="el-dropdown-link">
-                        {{ username }}
+                        {{username}}
                         <el-icon class="el-icon--right">
                             <arrow-down />
                         </el-icon>
@@ -35,7 +39,9 @@
                     <!-- 插槽 slot -->
                     <template #dropdown>
                         <el-dropdown-menu>
-                            <a href="https://github.com/lin-xin/vue-manage-system" target="_blank">
+                            <a 
+                            href="https://github.com/lin-xin/vue-manage-system"
+                             target="_blank">
                                 <el-dropdown-item>项目仓库</el-dropdown-item>
                             </a>
                             <el-dropdown-item command="user">个人中心</el-dropdown-item>
@@ -49,23 +55,25 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue'
-import imgurl from '../assets/img/login-bg.jpg'
+import { useSidebarStore } from '../store/sidebar';
+import { computed } from 'vue';
+import imgurl from '../assets/img/img.jpg'
 import { useRouter } from 'vue-router'
 const router = useRouter()
-const message:number = 99
-const username = localStorage.getItem('ms_username')
-const handleCommand = (command: string) => {
-    if(command == 'loginout'){
-        localStorage.removeItem('ms_username')
+const message :number = 0;
+const username = localStorage.getItem('ms_username');
+const handleCommand = (command :string) => {
+    if (command == 'loginout') {
+        localStorage.removeItem('ms_username');
         router.push('/login')
-    }else if(command == 'user'){
+    } else if (command == 'user') {
         router.push('/user')
     }
 }
-const collapse = ref(false);
+const sidebarStore = useSidebarStore();
+const collapse = computed(() => sidebarStore.collapse)
 const collapseChange = () => {
-   collapse.value= !collapse.value
+    sidebarStore.handleCollapse();
 }
 </script>
 
