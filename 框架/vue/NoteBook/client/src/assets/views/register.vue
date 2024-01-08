@@ -11,7 +11,7 @@
                     <van-field v-model="state.nickname" name="用户名" 
                         label="用户名" placeholder="用户名"
                         :rules="[{ required: true, message: '请填写用户名' }]" />
-                    <van-field v-model="state.nickname" name="昵称" label="昵称" placeholder="昵称"
+                    <van-field v-model="state.username" name="昵称" label="昵称" placeholder="昵称"
                         :rules="[{ required: true, message: '请填写昵称' }]" />
                     <van-field v-model="state.password" type="password" name="密码" label="密码" placeholder="密码"
                         :rules="[{ required: true, message: '请填写密码' }]" />
@@ -31,9 +31,12 @@
 </template>
 
 <script setup>
+import { showSuccessToast, showFailToast } from 'vant';
 import { useRouter } from 'vue-router'
 import { reactive, ref } from 'vue'
+import axios from'../../api'
 const state = reactive({ //将对象变成响应式
+    username: '',
     nickname: '',
     password: ''
 })
@@ -43,9 +46,22 @@ const state = reactive({ //将对象变成响应式
 const username = ref('')
 const password = ref('')
  */
-const onSubmit = () => {
+const onSubmit = async() => {
+    // console.log(state.username, state.password)
     // 发请求将信息发给后端
-    console.log(state.username, state.password)
+    const data =  await axios.post('/register',{
+        username: state.username,
+        password: state.password,
+        nickname: state.nickname
+
+    })
+    console.log(data);
+    showSuccessToast(data.msg);
+    setTimeout(() => {
+        router.push('/login')
+    }, 1500)
+    
+    
 }
 const  login = () => {
     router.push('/login')

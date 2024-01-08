@@ -4,6 +4,11 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = 
 [
     {
+        //根目录重定向到noteclass-page页面
+        path : '/', 
+        redirect: '/noteclass'
+    },
+    {
         path : '/login', //要以斜杠开头
         name : 'login-page',
         meta:{
@@ -27,6 +32,15 @@ const routes =
         },
         component : () => import('../assets/views/NoteClass.vue')
     }
+    ,
+    {
+        path:'/noteList',
+        name:'noteList-page',
+        meta:{
+            title : '笔记列表'
+        },
+        component : () => import('../assets/views/NoteList.vue')
+    }
 ]
 const router = createRouter({
     history : createWebHistory(),
@@ -41,7 +55,7 @@ router.beforeEach((to,from,next) => {
 
     if(!whitePath.includes(to.path)) { // 你想去详情页
         if(!sessionStorage.getItem('userInfo')){ // 没登入
-            router.push('./login')
+            router.push('/login')
             return
         }
         next()

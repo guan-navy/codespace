@@ -13,10 +13,12 @@ axios.interceptors.response.use((res) => {
     //程序错误
     showFailToast("服务端异常");//vant提示组件
   }else{
-    if(res.data.code!==8000){
+    if(res.data.code!=='8000'){
+      console.log(res);
         showFailToast(res.data.msg);
-        // Promise.reject(res)
-        return res.data
+        return Promise.reject(res)
+        // return res.data
+        
     }
     return res.data
   

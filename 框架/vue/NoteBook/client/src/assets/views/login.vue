@@ -34,6 +34,7 @@ const state = reactive({ //将对象变成响应式
     username: '',
     password: ''
 })
+const router = useRouter()
 
 /* 
 使用ref一个一个写,ref的性能更好,ref源码里让引用类型变成相应式数据会调用reactive
@@ -51,11 +52,11 @@ const onSubmit = async() => {
     })
     console.log(res);
     // 保存用户信息
-    sessionStorage.setItem('username', JSON.stringify(res.data))
-    router.push('/noteClass')
+    sessionStorage.setItem('userInfo', JSON.stringify(res.data))
+    router.push('/noteclass')
 
 }
-const router = useRouter()
+
 const register = () => {
     router.push('./register')
 }
