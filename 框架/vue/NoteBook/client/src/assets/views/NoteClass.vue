@@ -6,7 +6,7 @@
           <van-icon name="wap-nav" />
         </div>
         <div>
-          <van-icon name="edit" />
+          <van-icon name="edit"  @click="goPublish"/>
           <van-icon name="like-o" />
           <van-icon name="search" />
         </div>
@@ -27,14 +27,14 @@
       class="menu"
       @hidden="hideMenu"
       :class="{ active: state.isMenuShow }"
-    />
+    ></Menu>
   </div>
 </template>
 
 <script setup>
 import { useRouter } from "vue-router";//不用再去一层一层的去找router对象了
 import { reactive } from "vue";
-// import Menu from '../../components/menu.vue'
+import Menu from '../../components/Menu.vue'
 const router = useRouter();
 const nodeClass = [
   { bgColor: "#f0aa84", title: "美食" },
@@ -51,7 +51,10 @@ const hideMenu = (e) => {
   state.isMenuShow = e;
 };
 const goNoteList = (title) => {
-    router.push({ path: "/noteList",query: { type: title }});
+    router.push({ path: "/noteList",query: { 'title': title }});
+};
+const goPublish = () => {
+    router.push("/notePublish");
 };
 </script>
 

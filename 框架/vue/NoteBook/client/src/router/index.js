@@ -40,7 +40,25 @@ const routes =
             title : '笔记列表'
         },
         component : () => import('../assets/views/NoteList.vue')
+    },
+    {
+        path:'/noteDetail',
+        name:'noteDetail-page',
+        meta:{
+            title : '笔记详情'
+        },
+        component : () => import('../assets/views/NoteDetail.vue')
+    },
+    {
+        path:'/notePublish',
+        name:'notePublish-page',
+        meta:{
+            title : '笔记发布'
+        },
+        component : () => import('../assets/views/NotePublish.vue')
+        
     }
+    
 ]
 const router = createRouter({
     history : createWebHistory(),
