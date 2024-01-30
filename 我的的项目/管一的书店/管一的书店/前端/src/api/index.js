@@ -28,23 +28,28 @@ axiosObj.interceptors.response.use((res)=>{
         ElMessage({
           message: res.data.msg,
           type: 'error',
-          duration: 5000,
+          duration: 500,
           offset:100,
-          showClose: true
+         
         
         })
-        return Promise.reject(res.data)
+        // return Promise.reject(res.data)
       }
       //其他情况继续走
-      ElMessage({
-        message: res.data.msg,
-        type: 'success',
-        duration: 500,
-        offset:100,
+      else if(res.data.code=='8000'){
+        //如果返回的code是8000，就弹出成功信息，然后继续走
+        ElMessage({
+          message: res.data.msg,
+          type: 'success',
+          duration: 500,
+          offset:100,
+         
+        
+        })
        
-      
-      })
-        return res.data
+      }
+      return res.data
+       
     }
 }
 

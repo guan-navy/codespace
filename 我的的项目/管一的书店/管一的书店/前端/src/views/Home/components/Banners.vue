@@ -1,7 +1,16 @@
 <template>
       <el-carousel :interval="4000" type="card" height="250px">
-    <el-carousel-item v-for="item in 6" :key="item">
-      <h3 text="2xl" justify="center">{{ item }}</h3>
+    <el-carousel-item>
+      <el-image style="width: 100%; height: 100%" src='https://img0.baidu.com/it/u=3852039510,1420760012&fm=253&fmt=auto&app=120&f=JPEG?w=1470&h=800' fit="cover" />
+    </el-carousel-item>
+    <el-carousel-item>
+      <el-image style="width: 100%; height: 100%" src='https://pic3.zhimg.com/v2-65e1a2f73ef37cd15cd698042e3526ea_r.jpg' fit="cover" />
+    </el-carousel-item>
+    <el-carousel-item>
+      <el-image style="width: 100%; height: 100%" src='https://pic1.zhimg.com/v2-0a3b6f2dd4fd5e63ae7bf95cf64d44a8_r.jpg' fit="cover" />
+    </el-carousel-item>
+    <el-carousel-item>
+      <el-image style="width: 100%; height: 100%" src='https://pic2.zhimg.com/v2-892c6a5f72e0e75251f59ba9d7bfbf91_r.jpg' fit="cover" />
     </el-carousel-item>
   </el-carousel>
 </template>

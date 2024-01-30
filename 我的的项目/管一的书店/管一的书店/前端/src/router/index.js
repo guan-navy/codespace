@@ -32,21 +32,16 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: LoginView
-    },
-    {
-      path:'/test',
-      name:'test',
-      component:() => import('../views/样式测试/msg.vue')
     }
   ]
 })
 
 
-//路由守卫
-//白名单
+// 路由守卫
+// 白名单
 const whiteList = ['/login']
 router.beforeEach((to, from, next) => {
-  const token = sessionStorage.getItem('token')
+  const token =   sessionStorage.getItem('token')
   if (whiteList.includes(to.path) ) {
     if(to.path ==='/login'){
       if(token){

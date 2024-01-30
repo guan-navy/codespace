@@ -11,7 +11,7 @@ defineProps({
 </script>
 <template>
 
-    <div class="goods-item" v-for="item in goods" :key="item.id" >
+    <div :to="path" class="goods-item" v-for="item in goods" :key="item.id" >
       <div class="pic"><img :src="item.imgUrl" alt="" /></div>
       <div class="name">{{ item.name }}</div>
       <div class="author">{{ item.author }}</div>

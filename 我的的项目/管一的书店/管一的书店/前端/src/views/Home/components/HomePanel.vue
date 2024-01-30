@@ -1,34 +1,42 @@
 <script setup>
-defineProps({
-    title:String,
-    subTitle:String
+import { useBookStore } from '@/stores';
+import { onMounted } from 'vue';
+const props = defineProps(['type',' subTitle'])
+const bookStore = useBookStore()
+const emit = defineEmits(['getNovel'])
+const sendMsg = (msg)=>{
+  emit('getNovel',msg)
+
+}
+onMounted(() => {
+  sendMsg(bookStore. getBookByType(props.type))
 })
 </script>
-
 
 <template>
   <div class="home-panel">
     <div class="container">
       <div class="head">
-         <!-- 主标题和副标题 -->
+        <!-- 主标题和副标题 -->
         <h3>
-          文学经典<small>思考人生的意义</small>
+          {{props.type}}<small>{{ props.subTitle }}</small>
         </h3>
       </div>
       <!-- 主体内容区域 -->
-      <div> 
-        <slot/>
-    </div>
+      <div>
+        <slot />
+      </div>
     </div>
   </div>
 </template>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .home-panel {
   background-color: #fff;
-    width:80%;
-    margin:0 auto;
-    border-radius: 10px;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 10px;
+
   .head {
     padding: 40px 0;
     display: flex;

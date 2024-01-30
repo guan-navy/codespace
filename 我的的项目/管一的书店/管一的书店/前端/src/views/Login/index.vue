@@ -61,7 +61,7 @@
 
 <script setup>
 import axiosObj from '@/api/index'
-import { ref ,watch,computed} from 'vue'
+import { ref ,computed} from 'vue'
 import { ElMessage } from 'element-plus'
 import router from '@/router';
 
@@ -77,15 +77,15 @@ const newName = ref('')
 const newPassword = ref('')
 
 //todo 在用户输入一段时间后使用正则表达式数据检验
-watch(newPassword,()=>{
-    if (newPassword.value!= '') {
-    setTimeout(console.log(1),1000)
-    console.log(newPassword.value);
-    if (checkPasswordComplexity(newPassword.value)==false) {
+// watch(newPassword,()=>{
+//     if (newPassword.value!= '') {
+//     setTimeout(console.log(1),1000)
+//     console.log(newPassword.value);
+//     if (checkPasswordComplexity(newPassword.value)==false) {
         
-    }
-}
-})
+//     }
+// }
+// })
 const test =()=>{
     ElMessage({
         message: '注册成功',
@@ -95,17 +95,17 @@ const test =()=>{
       
 }
 
-function checkPasswordComplexity(password) {
-    // 定义正则表达式来匹配规则
-    const complexityRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/;
+// function checkPasswordComplexity(password) {
+//     // 定义正则表达式来匹配规则
+//     const complexityRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/;
 
-    // 使用正则表达式测试密码是否符合规则
-    if (complexityRegex.test(password)) {
-        return true; // 密码通过验证
-    } else {
-        return false; // 密码未通过验证，需要提示用户修改密码
-    }
-}
+//     // 使用正则表达式测试密码是否符合规则
+//     if (complexityRegex.test(password)) {
+//         return true; // 密码通过验证
+//     } else {
+//         return false; // 密码未通过验证，需要提示用户修改密码
+//     }
+// }
 
 
 //登录数据
@@ -140,7 +140,7 @@ const submitLogin =async()=>{
         password:password
     })
     console.log('后端返回数据',res);
-    sessionStorage.setItem('token',JSON.stringify(res.data))
+    sessionStorage.setItem('token',JSON.stringify(res.data.username))
     setTimeout(()=>{
         router.push('/')
     },500)
