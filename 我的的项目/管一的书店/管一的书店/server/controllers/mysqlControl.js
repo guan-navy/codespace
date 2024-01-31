@@ -118,6 +118,16 @@ const deleteUserBookRecord = (username, BookID) => {
     let _sql = `DELETE FROM cart WHERE username='${username}' AND BookID='${BookID}'`;
     return allService.query(_sql);
 };
+//查询某个作者的书籍
+const getBookByAuthor = (author) => {
+    let _sql = `select * from book where author='${author}';`
+    return allService.query(_sql)
+}
+//按照书名查找书籍
+const getBookByName = (name) => {
+    let _sql = `select * from book where name='${name}';`
+    return allService.query(_sql)
+}
 module.exports = {
     userLogin,
     useRegister,
@@ -128,5 +138,7 @@ module.exports = {
     deleteRecord,
     deleteUserAllRecord,
     deleteUserBookRecord,
-    getBookByType
+    getBookByType,
+    getBookByName,
+    getBookByAuthor
 }
