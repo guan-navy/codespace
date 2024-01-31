@@ -6,6 +6,9 @@ import axiosObj from '@/api/index'
 export const useBookStore = defineStore('book', () => {
   const bookList = ref({}) //书籍数据
   const cartInfo = ref({}) //购物车信息
+  const searchByName = ref({}) //书名搜索结果
+  const searchByAuthor = ref({}) //作者搜索结果
+  //获取全部书籍信息
   const getBookList = async () => {
     //获取书籍信息
     const res = await axiosObj.get('/books')
@@ -17,9 +20,22 @@ export const useBookStore = defineStore('book', () => {
   const getBookByType = async (type) => {
     const res = await axiosObj.get(`/getBookByType?type=${type}`)
    
-    console.log('获取到', type, '该分类的结果', res)
+    console.log('获取到', type, '该分类的结果', res.data)
     return res.data
   }
+  //获取该作者的数据
+  const getBookByAuthor = async (author) => {
+    const res = await axiosObj.get(`/getBookByAuthor?author=${author}`)
+    console.log('获取到', author, '该作者的结果', res.data)
+    searchByAuthor.value = res.data
+  }
+  //按照书名搜索
+  const getBookByName = (async (query) => {
+    const res =  await axiosObj.get(`/getBookByName?name=${query}`)
+    searchByName.value = res.data
+  console.log('按照书名搜索',searchByName.value);
+     })
+ //获取购物车信息
   const getCartInfo = async (name) => {
     //获取购物车信息
     const res = await axiosObj.get(`/getCart?username=${name}`)
@@ -76,6 +92,18 @@ export const useBookStore = defineStore('book', () => {
     console.log('清空购物车的函数的执行结果', res)
     getCartInfo(username)
   }
+//页面移动的方法
+const targetNovel = null
+const targetTechnology =null
+const moveTo =(targetElement)=>{
+    console.log("执行移动函数");
+    console.log(targetElement);
+    if (targetElement!=null) {
+      targetElement.value.scrollIntoView({ behavior: 'smooth' });
+    }
+  
+}
+
 
   return {
     bookList,
@@ -86,6 +114,14 @@ export const useBookStore = defineStore('book', () => {
     reduceCart,
     deleteBookRecord,
     clearCart,
-    getBookByType
+    getBookByType,
+    getBookByName,
+    searchByName,
+    getBookByAuthor,
+    searchByAuthor,
+    moveTo,
+    
+    targetNovel,
+    targetTechnology
   }
 })

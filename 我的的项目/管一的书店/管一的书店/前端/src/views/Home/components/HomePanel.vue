@@ -1,16 +1,7 @@
 <script setup>
-import { useBookStore } from '@/stores';
-import { onMounted } from 'vue';
-const props = defineProps(['type',' subTitle'])
-const bookStore = useBookStore()
-const emit = defineEmits(['getNovel'])
-const sendMsg = (msg)=>{
-  emit('getNovel',msg)
 
-}
-onMounted(() => {
-  sendMsg(bookStore. getBookByType(props.type))
-})
+const props = defineProps(['type','subTitle'])
+
 </script>
 
 <template>
@@ -19,7 +10,7 @@ onMounted(() => {
       <div class="head">
         <!-- 主标题和副标题 -->
         <h3>
-          {{props.type}}<small>{{ props.subTitle }}</small>
+          {{props.type}}<small>{{props.subTitle }}</small>
         </h3>
       </div>
       <!-- 主体内容区域 -->

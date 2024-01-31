@@ -3,7 +3,7 @@ import { ElMessage } from 'element-plus';
 
 //创建一个axios实例
 const axiosObj = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'http://47.96.118.118:8889',
   timeout: 2000
 })
 // 这段代码是为了让axios发送post请求时，自动加上请求头

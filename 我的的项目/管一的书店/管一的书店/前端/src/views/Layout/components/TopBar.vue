@@ -16,8 +16,8 @@
             <el-menu-item index="2-4-3">二级菜单3</el-menu-item>
           </el-sub-menu>
         </el-sub-menu>
-        <el-menu-item index="3">文学</el-menu-item>
-        <el-menu-item index="4">科幻</el-menu-item>
+        <el-menu-item index="3" @click="bookStore.moveTo(bookStore.targetNovel)">文学</el-menu-item>
+        <el-menu-item index="4" @click="bookStore.moveTo(bookStore.targetTechnology)">技术</el-menu-item>
         <el-menu-item index="5">关于</el-menu-item>
 
 
@@ -64,14 +64,19 @@ import { ref, computed } from 'vue';
 import { Search, CircleCloseFilled } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router';
 import router from '@/router';
+import { useBookStore } from '@/stores';
 const username = JSON.parse(sessionStorage.getItem('token'))
-
+const bookStore = useBookStore()
 const route = useRouter()
 const searchBarRequest = () => {
   if (inputValue.value !== '') {
     console.log('搜索');
     console.log(inputValue.value);
-    route.push('search')
+    bookStore.getBookByName(inputValue.value)
+    bookStore.getBookByAuthor(inputValue.value)
+    route.push({
+      path:'/search',
+    })
   }
 
 
@@ -86,6 +91,7 @@ const clearInputContent = () => {
 }
 //退出登录
 import { ElMessage, ElMessageBox } from 'element-plus'
+
 
 const logout = () => {
   ElMessageBox.confirm(
