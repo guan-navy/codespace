@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .float{
+            float: left;
+            /* 去掉div标签的修饰 */
+            height: 100px;
+            width: 100px;
+            background-color: #da9797;
+                       
+        }
+        .container::after
+        {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .clear::after{
+        
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .inner-div{
+            height: 100px;
+            background-color: #b6e07f;
+        }
+       .out-div{
+            height: 100px;
+            background-color: #b6e07f;
+       }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="float">1</div>
+        <div class="float">2</div>
+        <div class="float">3</div>
+        <p class="clear"></p>
+
+        <div class="inner-div ">这是div容器1</div>
+        <div class="inner-div">这是div容器2</div>
+       
+    </div>
+
+    <div>
+        <div class="out-div">这是div容器3</div>
+    </div>
+</body>
+</html>

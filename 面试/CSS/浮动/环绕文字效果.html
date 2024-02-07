@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Floating Text Around Image</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    .image-container {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .text-container {
+      overflow: hidden; /* Clear the float */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="text-container">
+    <div class="image-container">
+      <img src="https://picsum.photos/200/200" alt="Floating Image">
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non nisi id justo tristique
+      pellentesque ac sit amet sem. Nullam ut eros et turpis bibendum cursus vel id eros. Sed ac
+      interdum lacus. Fusce ac ipsum eu felis ultricies suscipit. Proin non metus nec lectus lacinia
+      facilisis. Integer ut sodales augue, vitae volutpat nisi. Duis tristique augue vel tristique
+      finibus. Suspendisse potenti. Quisque ut nunc ac urna volutpat bibendum. Vivamus vitae odio
+      vel nulla auctor luctus. Curabitur eu bibendum odio, id elementum nisi. Nulla facilisi. Fusce
+      euismod eleifend lacus nec feugiat. Aliquam ut cursus metus.
+    </p>
+  </div>
+
+</body>
+</html>
