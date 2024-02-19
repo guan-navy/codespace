@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="module">
+      import { reactive } from "./reactive.js";
+      import { effect } from "./effect.js";
+      const state = reactive({
+        age: 18,
+        name: "蜗牛",
+      });
+      setInterval(() => {
+        state.age++;
+        console.log("读取值", state.age);
+      }, 1000);
+      
+      effect(
+        () => {
+          console.log(state.age, "岁(依赖函数被触发)");
+        },
+        { lazy: false }
+      );
+    </script>
+  </body>
+</html>
