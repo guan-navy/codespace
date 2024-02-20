@@ -19,3 +19,28 @@ reactive 只能将引用类型代理成为响应式,是因为 proxy 只接受响
 
 # effect
 ![alt text](image.png)
+
+官方的副作用函数:![alt text](image-1.png)
+
+watcheffect
+![alt text](image-2.png)
+- 比watch功能更多能够在读取值时候多触发一个操作,修改值之后触发操作
+在读取值的时候操作
+在更改值的时候操作
+
+
+- 当调度函数生效的时候:副作用函数就不再触发(只会触发一次)
+
+
+
+
+
+
+# ref
+- get在函数,读取函数属性时,会自动执行
+js当中的对象有getter,stter的能力
+
+- es6中的区别:类中定义的函数就是被定义到原型链上:
+![alt text](image-3.png)
+
+#

@@ -20,6 +20,7 @@ export function effect(fn, options = {}) {
     if (!options.lazy) {
         effectFn();
     }
+   effectFn.scheduler = options.scheduler;//增加属性为调度函数
 
     return effectFn;
 }
@@ -27,6 +28,8 @@ export function effect(fn, options = {}) {
 
 //收集对该属性的依赖函数
 export function track(target, key) {
+
+    //一开始被读取到值了就开始初始化其数据结构
     // 获取或初始化depsMap
     let depsMap = targetMap.get(target);
 
@@ -63,5 +66,13 @@ export function trigger(target, key) {
     }
 
     // 遍历触发所有依赖的副作用函数
-    deps.forEach(effectFn => effectFn());
+    deps.forEach(effectFn =>{
+        if (effectFn.scheduler) {
+            //如果有调度器，就用调度器来执行
+            effectFn.scheduler();
+        }else{
+            effectFn();
+        }
+        
+    } );
 }

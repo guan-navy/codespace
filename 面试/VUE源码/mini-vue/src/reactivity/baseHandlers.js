@@ -5,7 +5,7 @@ const set = createSetter();
 function createGetter() {
   return function get(target, key, reciver) {
     // target被代理的源对象, key是原对象中的键, receiver是代理对象
-    console.log("值被读取了", key);
+    console.log("值被读取了", key,'这里是proxy拦截');
     const res = Reflect.get(target, key, reciver); // target[key]
 
     // 这个属性究竟还有哪些地方用到了(副作用函数的收集)
@@ -17,7 +17,7 @@ function createGetter() {
 
 function createSetter() {
   return function set(target, key, value, reciver) {
-    console.log("值被修改了", key, value);
+    console.log("值被修改了", key, value,'这里是proxy拦截');
 
     const res = Reflect.set(target, key, value, reciver);
     // 需要记录下来是哪一个key的值变了,再去通知其他依赖函数生效,更新浏览器的视图

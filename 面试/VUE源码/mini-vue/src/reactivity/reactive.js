@@ -23,7 +23,7 @@ function createReactiveObject(target, proxyMap, proxyHandlers) {
 
   // 执行代理操作
   // 第二个参数: 当target被读取值,设置值,判断值等等操作时会触发的操作
-  const proxy = new Proxy(target, proxyHandlers); // 修正此处的小写proxy为大写Proxy
+  const proxy = new Proxy(target, proxyHandlers); 
 
   // 响应式对象放入map中,将代理过的对象缓存起来
   proxyMap.set(target, proxy);

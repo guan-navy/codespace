@@ -15,14 +15,19 @@
       });
       setInterval(() => {
         state.age++;
-        console.log("读取值", state.age);
+        console.log("岁数值为", state.age,'(定时器读取)');
       }, 1000);
+      
       
       effect(
         () => {
-          console.log(state.age, "岁(依赖函数被触发)");
+          console.log('今年岁数是',state.age, "(依赖函数被触发)");
         },
-        { lazy: false }
+        { lazy: false,
+          scheduler(){
+            console.log("(测试调度函数触发)");
+          }
+         }
       );
     </script>
   </body>
