@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container {
+    min-height: 100%;
+    overflow: hidden; /* 防止浮动元素引起的问题 */
+}
+
+.left, .right {
+   
+    width: 200px; /* 左右栏宽度设定为固定值 */
+    height: 100%; /* 高度与父容器相同 */
+}
+
+.center {
+    margin-left: 200px; /* 确保左边栏不被覆盖 */
+    margin-right: 200px; /* 确保右边栏不被覆盖 */
+    height: 100%; /* 高度与父容器相同 */
+    background: #eee; /* 可视化展示中间栏 */
+}
+
+.left {
+    float: left;
+    background: #ccc; /* 可视化展示左侧栏 */
+}
+
+.right {
+    background: #999; /* 可视化展示右侧栏 */
+    float: right; /* 右侧栏靠右浮动 */
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both; /* 清除浮动 */
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="left">左侧栏</div>
+        <div class="right">右侧栏</div>
+        <div class="center">中间栏</div>
+        <div class="clearfix"></div>
+    </div>
+</body>
+</html>

@@ -9,47 +9,36 @@
         padding: 0;
         margin: 0;
       }
-      .container div {
-        float: left;
-      }
-      .container {
-        /* box-sizing: border-box; */
-        height: 100px;
-        padding-left: 200px;
-        padding-right: 200px;
-       
-      }
-
+      
       .content {
-        height: 100%;
-        width: 100%;
+        position: absolute;
+        left: 200px;
+        right: 200px;
         background-color: #fffb00;
+      
+        height: 100px;
       }
       .left {
-        margin-left: -100%;
-        left: -200px;
-        position: relative;
+        left: 0px;
+        position: absolute;
         height: 100px;
         width: 200px;
-
         background-color: #e13939;
       }
       .right {
-        position: relative;
+        position: absolute;
         height: 100px;
         width: 200px;
         background-color: #39e151;
-        margin-left: -200px;
-        left: 200px;
+        right: 0;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="content">content</div>
-      <div class="left">left</div>
-      <div class="right">right</div>
-    
+      <div class="left"></div>
+      <div class="content"></div>
+      <div class="right"></div>
     </div>
   </body>
 </html>
