@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+          padding: 0;
+          margin: 0;
+        }
+        .container div{
+            float: left;
+            
+        }
+        .container{
+
+            /* box-sizing: border-box; */
+            height: 100px;
+            padding-left: 200px;
+            padding-right: 200px;
+            background-color: #975656;
+        }
+      
+        .content{
+            height: 100%;
+            width: 100%;
+            background-color: #b8b513;
+        }
+        .left{
+            margin-left:-100%;
+            left: -200px;
+            position: relative;
+            height: 100px;
+            width: 200px;
+           
+            background-color: #e13939;
+        }
+    .right{
+        /* position: relative; */
+        height: 100px;
+            width: 200px;
+           
+            background-color: #39e151;
+            margin-left: -200px;
+            left: 200px;
+        }
+    .three{
+        position: relative;
+        height: 100px;
+            width: 200px;
+           
+            background-color: #030403;
+            
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="three"></div>
+    </div>
+  
+</body>
+</html>
