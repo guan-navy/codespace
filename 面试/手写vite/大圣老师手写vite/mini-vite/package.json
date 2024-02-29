@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@vue/compiler-dom": "^3.4.21",
+    "@vue/compiler-sfc": "^3.4.21",
+    "koa": "^2.15.0",
+    "koa-send": "^5.0.1",
+    "vue": "^3.4.21"
+  }
+}
