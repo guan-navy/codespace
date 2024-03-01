@@ -1,5 +1,5 @@
 <template>
-    <div v-if="suggestData" v-for="order in suggestData.order">
+    <div v-if="suggestData!=null" v-for="order in suggestData.order">
         <div class="pt-2 pb-1.5 px-2.5">{{ order }}</div>
         <div v-for="item in suggestData.songs" :key="item.id" v-if="order==='songs'"
          class="py-1.5 px-2.5 hover-bg-main text-xs cursor-pointer" @click="play(item.id)">
@@ -30,6 +30,7 @@
 <script setup lang="ts">
 import { useSearchStore } from "@/stores/search";
 import { storeToRefs } from "pinia";
+
 
 const { suggestData} = storeToRefs(
     useSearchStore()

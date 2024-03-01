@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/Mine/Mine",
+    "pages/List/List",
+    "pages/Statistic/Statistic",
+    "pages/Lock/Lock"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#f890a8",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "iconfontSrc": "static/iconfont.ttf",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/icon/todo.png",
+        "selectedIconPath": "static/icon/todo-active.png",
+        "text": "待办"
+      },
+      {
+        "pagePath": "pages/List/List",
+        "iconPath": "static/icon/Todo-List.png",
+        "selectedIconPath": "static/icon/Todo-List-active.png",
+        "text": "锁机"
+      },
+      {
+        "pagePath": "pages/Lock/Lock",
+        "iconPath": "static/icon/suo.png",
+        "selectedIconPath": "static/icon/suo-active.png",
+        "text": "锁机"
+      },
+      {
+        "pagePath": "pages/Statistic/Statistic",
+        "iconPath": "static/icon/tongji.png",
+        "selectedIconPath": "static/icon/tongji-active.png",
+        "text": "统计数据"
+      },
+      {
+        "pagePath": "pages/Mine/Mine",
+        "iconPath": "static/icon/wode.png",
+        "selectedIconPath": "static/icon/wode-active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

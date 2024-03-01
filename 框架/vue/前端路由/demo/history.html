@@ -62,6 +62,7 @@
             onPopState()
             const links = document.querySelectorAll('li a')
             links.forEach(a => {
+                //为每个a标签添加点击事件
                 a.addEventListener('click', (e) => {
                     e.preventDefault()  // 阻止了a标签的默认跳转行为
                     // 添加一个可以修改url又不造成页面刷新
@@ -71,7 +72,9 @@
                 })
             })
         }
+        //在页面初始化的时候完成url与组件正确的映射
         window.addEventListener('DOMContentLoaded', onLoad)
+        //监听页面因为浏览器前进后退导致的url变化事件
         window.addEventListener('popstate', onPopState)
     </script>
 </body>

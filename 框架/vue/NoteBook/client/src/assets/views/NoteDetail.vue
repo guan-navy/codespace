@@ -38,11 +38,11 @@ onMounted(async () => {
   const { data } = await axios.post("/findNoteDetailById", {
     id: route.query.id,
   });
-  // console.log(检验获取数据,data);
-  state.noteContent = data;
-  // console.log(state.noteContent);
-  refVarible.value = data
-  // console.log("ref方法定义响应式数据",refVarible.value);
+  console.log('检验获取数据',data[0]);
+  state.noteContent = data[0];
+  console.log(state.noteContent);
+  refVarible.value = data[0]
+  console.log("ref方法定义响应式数据",refVarible.value);
 });
 
 </script>

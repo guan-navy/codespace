@@ -55,7 +55,7 @@ import SearchSuggest from './SearchSuggest.vue'
 const { showSearchView, searchKeyWord, showHot } = storeToRefs(useSearchStore())
 const { suggest }  = useSearchStore()
 
-const searchInput = debounce(() => suggest(), 30)
+const searchInput = debounce(() => suggest(), 500)
 const searchHot = ref<SearchHotDetail[]>([])
 onMounted(async () => {
   searchHot.value = await getSearchHotDetail()

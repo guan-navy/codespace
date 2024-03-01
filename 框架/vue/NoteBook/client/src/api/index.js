@@ -1,7 +1,7 @@
 import axios from "axios";
-import { showSuccessToast, showFailToast } from "vant";
+import {  showFailToast } from "vant";
 
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "http://47.96.118.118:9000";
 // 这段代码是为了让axios发送post请求时，自动加上请求头
 axios.defaults.headers.post["Content-Type"] = "application/json";
 

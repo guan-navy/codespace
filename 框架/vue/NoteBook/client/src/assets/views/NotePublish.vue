@@ -95,7 +95,7 @@ const onSubmint=async()=>{
   console.log(res);
   showSuccessToast(res.msg)
   setTimeout(()=>{
-    router.push({ path: "/noteList",query: { 'title': state.title }});
+    router.push({ path: "/noteList",query: { 'title': state. note_type }});
   },1000)
 }
 </script>

@@ -1,0 +1,12 @@
+{
+  "name": "own_vite",
+  "version": "1.0.0",
+  "description": "- vue 项目是如何运行起来的\r - 热更新是如何实现的：websocket + node\r - vite 是如何打包的项目初始化，开发，debug，打包，测试，发布\r   index.html？koa\r - vite 为啥更快 区别 优势在哪",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

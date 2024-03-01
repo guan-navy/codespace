@@ -1,11 +1,12 @@
 import { defineStore } from 'pinia'
 import {getSearchSuggest} from '@/api/index'
+import type {SearchSuggest} from '@/models/search'
 export const useSearchStore = defineStore('search',{
     state: () => {
         return {
             showSearchView: false,
             searchKeyWord:'',
-            suggestData:{}
+            suggestData:{}as SearchSuggest
         }
     },
     getters:{

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>个人主页网站</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="App">
+      <div class="navigation-bar">
+        <div  id="navigation-bar-home">首页</div>
+        <div  id="navigation-bar-hobby">我的爱好</div>
+        <div  id="navigation-bar-university"><a href="https://www.ecut.edu.cn/">我的大学</a></div>
+        <div  id="navigation-bar-dream">我的梦想</div>
+        <div  id="navigation-bar-album">班级相册</div>
+        <div  id="navigation-bar-block">我的博客</div>
+        <div  id="navigation-bar-me">关于我</div>
+      </div>
+      <!-- 挂载点 -->
+      <div class="my-body" id="my-body">
+        <div class="welcome" style="text-align: center">欢迎来到我的网站</div>
+      </div>
+
+      <!-- 挂载组件 -->
+      <template id="home">
+        <div class="home-right">
+          <div class="home-photo-bigPhoto">
+            <div>
+              <img
+                src="./picture/首页右边栏的第一张图片/home-big.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="home-photo-title1">
+            <div>最新照片</div>
+          </div>
+          <div class="home-photo-litlePhotos">
+            <div class="content">
+              <div>
+                <img src="./picture/首页右边栏的小图片集/1.jpg" alt="" />
+              </div>
+              <div>
+                <img src="./picture/首页右边栏的小图片集/2.jpg" alt="" />
+              </div>
+              <div>
+                <img src="./picture/首页右边栏的小图片集/3.jpg" alt="" />
+              </div>
+              <div>
+                <img src="./picture/首页右边栏的小图片集/4.jpg" alt="" />
+              </div>
+              <div>
+                <img src="./picture/首页右边栏的小图片集/5.jpg" alt="" />
+              </div>
+              <div>
+                <img src="./picture/首页右边栏的小图片集/6.jpg" alt="" />
+              </div>
+              <div>
+                <img src="./picture/首页右边栏的小图片集/7.jpg" alt="" />
+              </div>
+              <div>
+                <img src="./picture/首页右边栏的小图片集/8.jpg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="home-photo-title2">
+            <div>小调查</div>
+          </div>
+          <div class="home-photo-survey">
+            <div class="content">
+              请你选择你喜欢的运动: <br />
+              <input type="checkbox" />篮球 <br />
+              <input type="checkbox" />足球 <br />
+              <input type="checkbox" />网球 <br />
+              <button>提交</button>
+            </div>
+          </div>
+        </div>
+        <div class="home-left">
+          <div class="head">《当你老了》--叶芝</div>
+          <div class="body">
+            <div>
+              <p>
+                &nbsp;&nbsp;
+                当年华已逝，你两鬓斑白，沉沉欲睡，坐在炉边慢慢打盹，请取下我的这本诗集，
+                请缓缓读起，如梦一般，你会重温，你那脉脉眼波，她们是曾经那么的深情和柔美
+                多少人曾爱过你容光焕发的楚楚魅力，爱你的倾城容颜，或是真心，或是做戏，
+                但只有一个人!他爱的是你圣洁虔诚的心!
+                当你洗尽铅华，伤逝红的老去，他也依然深爱着你!
+              </p>
+            </div>
+            <div class="img">
+              <img
+                src="./picture/首页左边栏的文章中的图片/home-left-content.jpeg"
+                alt=""
+              />
+            </div>
+            <div>
+              <p>
+                &nbsp;&nbsp;炉里的火焰温暖明亮，你轻轻低下头去，
+                带着淡淡的凄然，为了枯萎熄灭的爱情，喃喃低语此时他正在千山万壑之间独自游荡，
+                在那满天凝视你的繁星后面隐起了脸庞。
+              </p>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <script>
+      //路径对象
+      const route = [
+        {
+          id: "navigation-bar-home",
+          path: "#/home",
+          template: "home",
+        },
+        {
+          id: "navigation-bar-hobby",
+          path: "#/my-hobbies",
+          template: "hobby",
+        },
+        {
+          id: "navigation-bar-university",
+          path: "#/my-university",
+          template: "university",
+        },
+        {
+          id: "navigation-bar-album",
+          path: "#/class-album",
+          template: "album",
+        },
+        {
+          id: "navigation-bar-dream",
+          path: "#/my-dream",
+          template: "dream",
+        },
+        {
+          id: "navigation-bar-block",
+          path: "#/my-block",
+          template: "block",
+        },
+        {
+          id: "navigation-bar-me",
+          path: "#/about-me",
+          template: "me",
+        },
+      ];
+      //获取到挂载点对象body,内容将会被挂在到body里面
+      const body = document.getElementById("my-body");
+
+      //挂载函数
+      function onLoad() {
+        //遍历路由数组,路由匹配
+        route.forEach((element) => {
+          //读取当前的hash值遍历路由对象数组选中对应的对象
+          if (element.path == location.hash) {
+            console.log("进行挂载");
+            let template1 = document.getElementById(element.template);
+            body.innerHTML = template1.innerHTML;
+          }
+        });
+      }
+
+      //更改hash值
+      function navigationBarHandel() {
+        onLoad();
+        // 使用 document.querySelectorAll 获取所有 导航栏下的 所有div 元素
+        //保存在 divsInContainer
+        var divsInContainer = document.querySelectorAll(".navigation-bar div");
+        divsInContainer.forEach((item) => {
+          // console.log(item);
+          item.addEventListener("click", () => {
+            // console.log(item);
+            // console.log(location);
+            // console.log(location.hash);
+            // console.log("id", item.getAttribute("id"));
+
+            //增加选中效果
+            
+
+             for (let index = 0; index < divsInContainer.length; index++) {
+              console.log('修改选中效果');
+              const element = divsInContainer[index];
+              console.log(element);
+              if( element.getAttribute('id') == item.getAttribute('id')){
+                item.setAttribute("class",'choosed')
+                continue
+              }
+              element.setAttribute('class',null)
+              
+             }
+              
+            
+            
+
+            //修改哈希值
+            for (let i = 0; i < route.length; i++) {
+              //当导航块元素id匹配id相等的路由对象
+              //将当前location.hash改为当前对象的path
+              const element = route[i];
+              if (element.id == item.getAttribute("id")) {
+                location.hash = element.path;
+                break;
+              }
+            }
+            // console.log("类名", item.getAttribute("class"));
+            onLoad();
+          });
+        });
+      }
+      function show() {
+        location.hash = ''
+      }
+      window.addEventListener('pageshow',show)
+      window.addEventListener("hashchange",  navigationBarHandel);
+      window.addEventListener("DOMContentLoaded",  navigationBarHandel);
+    </script>
+  </body>
+</html>
+
+
+//css
+html,
+body {
+    margin: 0;
+    padding: 0;
+   
+}
+
+.App {
+    min-height: 100vh;
+    display: flex;
+    Flex-direction: column;
+   
+
+}
+
+/* 导航栏样式 */
+.navigation-bar {
+    font-size: 15px;
+    display: flex;
+    flex: 0 0 50px;
+    justify-content: space-around;
+}
+
+.navigation-bar>div {
+    flex:1;
+    display: inline-block;
+    padding: 8px;
+    line-height: 34px;
+    text-align: center;
+}
+
+.choosed {
+    background-color: rgb(162, 234, 133);
+    color: rgb(255, 255, 255);
+}
+
+/* 挂载点的样式 */
+.my-body {
+    display: flex;
+    flex: 1;
+    font-family: '宋体';
+}
+
+
+
+
+/* home首页样式 */
+
+.home-right {
+    font-family: '黑体';
+    display: flex;
+    Flex-direction: column;
+    flex: 2;
+    background-color:#f1f1f1;
+
+}
+
+.home-left {
+    flex: 8;
+    background-color: rgb(255, 255, 255);
+
+}
+
+.home-photo-bigPhoto {
+
+    width: 100%;
+    height: 280px;
+
+    background-color: rgb(255, 255, 255);
+}
+
+.home-photo-bigPhoto>div {
+    width: 200px;
+    height: 200px;
+    
+    border-radius: 50%;
+    margin-top: 40px;
+    margin-left: 40px;
+    /* 超出则隐藏 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.home-photo-bigPhoto>div>img {
+    height: 100%;
+
+}
+
+.home-photo-title1,
+.home-photo-title2 {
+    background-color: rgb(179, 240, 155);
+
+    line-height: 30px;
+    flex: 0 0 30px;
+}
+
+/* 首页右侧栏小图片 */
+.home-photo-title1 div,
+.home-photo-title2 div {
+    margin-left: 12px;
+}
+
+.home-photo-litlePhotos {
+    flex: 4;
+    display: inline-block;
+    background:#f1f1f1;
+}
+
+/* 小图片的样式 */
+.home-photo-litlePhotos .content {
+    margin-left: 10px;
+    margin-top: 25px;
+    display: flex;
+    background-color:#f1f1f1;
+    width: 280px;
+    height: 180px;
+    flex-wrap: wrap;
+}
+
+.home-photo-litlePhotos .content div {
+    width: 70px;
+    height: 80px;
+    /* 超出则隐藏 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.home-photo-litlePhotos .content>div>img {
+    height: 100%;
+
+
+}
+
+.home-photo-survey {
+    flex: 3;
+}
+
+.home-photo-survey .content {
+    width: 200px;
+    height: 200px;
+    /* background-color: peru; */
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+
+/* 首页左边 */
+.home-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-left .head {
+    height: 100px;
+    background-color: rgb(193, 243, 173);
+    font-size: 40px;
+    line-height: 100px;
+
+}
+
+.home-left .body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+}
+
+.home-left .body p {
+    font-size: 20px;
+}
+
+.home-left .body .img {
+    text-align: center;
+}
+
+.home-left .body .img img {
+    height: 350px;
+}
+
+a{
+    
+        text-decoration: none; /* 去掉下划线 */
+        color: #000; /* 设置链接颜色为黑色 */
+     
+}

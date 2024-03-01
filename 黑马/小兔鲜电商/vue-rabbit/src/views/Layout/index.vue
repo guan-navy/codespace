@@ -18,6 +18,8 @@ import  {usecategoryStore} from '@/stores/category'
   <LayoutFixed />
   <LayoutNav />
   <LayoutHeader />
-  <RouterView />
+  <!-- 破坏复用 -->
+  <!-- <RouterView :key="$route.fullPath" /> -->
+  <RouterView  />
   <LayoutFooter />
 </template>

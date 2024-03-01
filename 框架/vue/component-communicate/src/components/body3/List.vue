@@ -10,7 +10,7 @@
 export default {
     props: {
         addlists: {
-            type: String,
+            type: Array,
             default: ''
         }
 

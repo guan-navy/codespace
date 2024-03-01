@@ -40,3 +40,16 @@
   - state showSearchView searchKeyword suggestData
   - getters showHot
   - actions suggest search
+- 请介绍一个你设计的比较复杂的组件
+  - 搜索组件
+  - 状态比较复杂
+      除了keyword searchResult 之外
+      我还打理了showPopview hotList组件
+  - 引入pinia 并提前设计数据流
+  - suggest 组件粒度很 OK
+      searchPopover
+        ELPopOver
+          ElInput slot
+          SearchSuggest
+  - 还使用了ts models 定义了interface 
+  

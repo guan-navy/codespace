@@ -1,7 +1,7 @@
 <script setup>
 import { getTopCategoryAPI } from '@/apis/category'
 import { ref, onMounted ,watch} from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute,onBeforeRouteUpdate } from 'vue-router'
 import { getBannerAPI } from '@/apis/home'
 import GoodsItem from '@/views/Home/components/GoodsItem.vue'
 //获取数据
@@ -16,12 +16,18 @@ onMounted(() => {
     getcategoryData()
 })
 //在进入二级页面之后还想要跳转其他分类
-watch(
-      () => route.params.id,
-      () => {
-        getcategoryData()
-      }
-    );
+// watch(
+//       () => route.params.id,
+//       () => {
+//         getcategoryData()
+//       }
+//     );
+
+//使用钩子函数onBeforeRouteUpdate
+onBeforeRouteUpdate((to) => {
+    getcategoryData(to.params.id)
+})
+
 
 
 //获取banner数据
