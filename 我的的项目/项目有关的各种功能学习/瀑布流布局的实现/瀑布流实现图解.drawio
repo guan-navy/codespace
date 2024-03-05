@@ -1,0 +1,150 @@
+<mxfile host="65bd71144e">
+    <diagram name="第 1 页" id="B8l3fq9cMFjMgc9W6FOc">
+        <mxGraphModel dx="994" dy="846" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="120" width="360" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="160" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="90" y="160" width="40" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="160" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="160" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="160" width="40" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-7" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="160" width="40" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-8" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="290" y="160" width="40" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-12" value="包含所有的图片数组" style="rounded=0;whiteSpace=wrap;html=1;fillColor=default;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="80" width="230" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-13" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="590" y="615" width="40" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-15" value="第一行的图片不需要管只需要计算其高度就行" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="180" width="170" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-16" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="490" y="230" width="280" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-17" value="index：0" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="490" y="230" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-18" value="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="230" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-19" value="5" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="690" y="230" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-20" value="4" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="650" y="230" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-21" value="3" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="610" y="230" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-22" value="2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="570" y="230" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-24" value="6" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="730" y="230" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-28" value="高度数组，存储每列图片的累计高度" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="277.5" width="150" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-29" value="使用math.min找到最矮的那一列然后为遍历到的图片的index" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="450" width="165" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-31" value="" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="gZTjLPGLR5uSmUV4Eoir-12" target="gZTjLPGLR5uSmUV4Eoir-12" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="440" y="100" as="sourcePoint"/>
+                        <mxPoint x="720" y="40" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="490" y="100"/>
+                            <mxPoint x="510" y="20"/>
+                            <mxPoint x="760" y="30"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-33" value="for循环遍历" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="gZTjLPGLR5uSmUV4Eoir-31" vertex="1" connectable="0">
+                    <mxGeometry x="-0.087" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-34" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="417.5" y="130" width="395" height="575" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-36" value="i=0,i&amp;lt;arr.length;i&lt;span style=&quot;background-color: initial;&quot;&gt;++&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="522.5" y="160" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-39" value="i&amp;gt;=第一行图片数量" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="570" y="400" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-40" value="为接下来遍历到的图片通过绝对定位设置位置" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="510" width="260" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-41" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="609" y="615" as="sourcePoint"/>
+                        <mxPoint x="609" y="565" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-43" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="590" y="645" as="sourcePoint"/>
+                        <mxPoint x="530" y="645" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-44" value="left = 图片宽度*index" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="414" y="615" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-45" value="top&amp;nbsp; = 最矮的那列的高度" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="540" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-46" value="&lt;span style=&quot;font-size: 21px;&quot;&gt;for循环遍历图片&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="130" width="180" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-47" value="遍历的图片" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="200" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-48" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="270" y="200" as="sourcePoint"/>
+                        <mxPoint x="269.5" y="160" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-51" value="top" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="gZTjLPGLR5uSmUV4Eoir-48" vertex="1" connectable="0">
+                    <mxGeometry x="0.1132" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-49" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="250" y="258" as="sourcePoint"/>
+                        <mxPoint x="50" y="257.5" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-50" value="left" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="gZTjLPGLR5uSmUV4Eoir-49" vertex="1" connectable="0">
+                    <mxGeometry x="0.0883" y="3" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="gZTjLPGLR5uSmUV4Eoir-53" value="&lt;span style=&quot;font-size: 21px;&quot;&gt;页面&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="90" y="390" width="180" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
