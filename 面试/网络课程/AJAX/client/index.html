@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="getBtn">发送ajaxGET请求</button>
+    <button id="postBtn">发送ajaxPOST请求</button>
+    <script>
+        const getBtn = document.getElementById("getBtn");
+        const postBtn = document.getElementById("postBtn");
+       
+      const AjaxGET = () => {
+        const xhr = new XMLHttpRequest();
+        //请求方式,,请求地址,是否为异步,默认为true同步
+
+        // 使用open方法初始化一个请求
+        // 参数分别为请求类型（'GET'）、请求的URL以及是否异步执行
+        // 第三个参数设为true表示请求为异步，即不会阻塞浏览器主线程，响应会在状态改变时触发回调函数
+
+        xhr.open("get", "http://localhost:3000/get", true);
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState == 4 && xhr.status === 200) {
+            console.log(xhr.responseText);
+          }
+        };
+
+        //因为get请求的话呢,参数一般是放在url里面,因此参数里面放null
+        xhr.send(null);
+      };
+      const AjaxPost = () => {
+            console.log("post");
+            const xhr = new XMLHttpRequest();
+            xhr.open("post", "http://localhost:3000/post", true);
+
+            // 设置请求头，假设服务器端接受 JSON 格式的数据
+            // xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == 4 && xhr.status === 200) {
+                    console.log(xhr.responseText);
+                }
+            };
+
+            // 假设我们有一个对象作为要发送的数据
+            const data = { key1: 'value1', key2: 'value2' };
+            // 将数据转换为 JSON 字符串，并发送
+            // xhr.send(JSON.stringify(data));
+            xhr.send("key1=value1&key2=value2");
+        };console.log(postBtn);
+      getBtn.addEventListener("click", AjaxGET);
+      postBtn.addEventListener("click", AjaxPost);
+    </script>
+  </body>
+</html>
