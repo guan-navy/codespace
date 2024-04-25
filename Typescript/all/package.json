@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "description": "",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "tsc-node": "^0.0.3",
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.0",
+    "@types/node": "^20.12.7",
+    "ts-node": "^10.9.2"
+  }
+}
