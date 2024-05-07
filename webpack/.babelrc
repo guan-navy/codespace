@@ -1,0 +1,19 @@
+{
+    //相当于把loader当中options写在了这里
+    "presets":[
+        [
+            "@babel/preset-env",{
+                "targets":{
+                   "browsers":[
+                    // 兼容,市占率大于1%的浏览器,以及兼容最后两个版本,不兼容IE8
+                    ">1%",
+                    "last 2 versions",
+                    "not ie <=8"
+                   ]
+                    
+                }
+            }
+               
+        ]
+    ]
+}
