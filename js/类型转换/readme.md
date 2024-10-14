@@ -36,3 +36,11 @@ ToPrimitive(obj,String)
 - console.log(NaN==NaN)//返回false,只要一边是false
 - 两边有number类型优先非number类型转化为数字
 
+# 4. js类型
+
+-- js当中的类型
+
+显示类型转化
+隐式类型转化
+
+当开发中遇到 比较运算符和算数运算符时,当符号两边有不同类型时,会自动进行类型转化

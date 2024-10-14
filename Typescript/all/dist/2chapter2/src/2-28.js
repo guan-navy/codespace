@@ -1,17 +1,18 @@
 "use strict";
 {
-    class people {
-        constructor(name) {
+    var people = (function () {
+        function people(name) {
             this.age = 0;
             this.name = name;
             this.habbit = '';
             this.height = 0;
         }
-        eat() {
+        people.prototype.eat = function () {
             console.log('eat');
-        }
-    }
-    people.isHuman = true;
-    let miike = new people('miike');
+        };
+        people.isHuman = true;
+        return people;
+    }());
+    var miike = new people('miike');
     miike.height = 1.7;
 }

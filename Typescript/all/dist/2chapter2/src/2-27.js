@@ -1,5 +1,5 @@
 "use strict";
 {
-    let [name, age, ...rest] = ["Tom", 18];
-    console.log(name, age, rest);
+    var _a = ["Tom", 18], name_1 = _a[0], age = _a[1], rest = _a.slice(2);
+    console.log(name_1, age, rest);
 }

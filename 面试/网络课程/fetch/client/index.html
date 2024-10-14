@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="getBtn">发送ajaxGET请求</button>
+    <button id="postBtn">发送ajaxPOST请求</button>
+    <button id="stopBtn">终止请求请求</button>
+    <div>请求进度<span id="progress"></span></div>
+
+    <script>
+      const getBtn = document.getElementById("getBtn");
+      const postBtn = document.getElementById("postBtn");
+      const stopBtn = document.getElementById("stopBtn");
+      const progress = document.getElementById("progress");
+      const abort = new AbortController();
+     const getFetch =()=>{
+      fetch('http://localhost:3000/get',{
+        method:'GET',
+        headers:{
+          'Content-Type':'application/json'
+        },
+        signal:abort.signal
+      }).then(async(res)=>{
+        const response =  res.clone();
+        //当前传输过来的信息流
+      const reader = res.body.getReader()
+      //总的信息长度
+      const total = res.headers.get('Content-Length')
+      console.log(total);
+      let loaded = 0;
+      while(true){
+        const {done,value} = await reader.read()
+        if(done){
+          break
+        }
+        loaded+=value.length;
+  
+        progress.innerHTML = `${(loaded/total*100).toFixed(2)}%`
+        
+
+      }
+        return response.json()
+      }).then(res=>console.log(res))
+
+
+     }
+     const stopFetch = ()=>{
+      abort.abort();
+     
+     }
+     const postFetch=()=>{
+      fetch('http://localhost:3000/post',{
+        method:'POST',
+        headers:{
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({
+          name:'张三',
+          age:18
+        })
+      }).then(res=>res.json()).then(res=>console.log(res))
+     }
+     getBtn.addEventListener("click",getFetch);
+     postBtn.addEventListener("click",postFetch);
+     stopBtn.addEventListener("click",stopFetch);
+    </script>
+  </body>
+</html>

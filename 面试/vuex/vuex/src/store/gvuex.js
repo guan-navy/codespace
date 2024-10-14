@@ -1,55 +1,8 @@
-// import{inject, reactive} from 'vue'
-// const STORE_KEY = '_store_'
-// class Store{
-//     constructor(options){//构造函数s
-//         this.$options = options//这里的options就是在使用createStore实例化的时候的仓库对象
-//          //将状态对象封装成响应式对象
-//         this._store = reactive({//下划线属性,私有对象
-//             data:options.state()
-//         })
-//         this._mutations = options.mutations
-//         this._actions = options.actions
-//         this._getters = {}
-
-//         //getters的实现,先将输入对象中的getters中的每一个函数复制到store对象上
-//         Object.keys(options.getters).forEach(name=>{
-//            const fn = options.getters[name]
-//            this.getters[name] = computed(()=>fn(this.state))
-//         })
-
-//         commit = (type,playoad)=>{
-//             const entry = this._mutations[type]
-
-//             entry && entry(this.state,playoad)
-
-//         }
-//         dispatch = (type,playoad)=>{
-//             const entry = this._actions[type]
-//             return entry&&entry(this.dispatch,this.state,playoad)
-//         }
-//     }
-//     get state(){ //保护数据的读取
-//         return this._store.data
-//     }
-   
-//     install(app){
-//     //     console.log(app);
-//     //电台 发布者
-//     app.provide(STORE_KEY,this)
-//     }
-// }
-// //单一状态树
-// function createStore(options) {
-//  return new Store(options);
-// }
-// function useStore(){
-//     return inject(STORE_KEY)
-// }
-// export{createStore,useStore}
 import { inject, reactive, computed } from 'vue'
 
 const STORE_KEY = '__store__'
 // vue 3.0 版本 
+
 function useStore() {
     return inject(STORE_KEY)
 }
@@ -59,6 +12,8 @@ class Store {
         this.$options = options
         // 私有的 
         // store.state.   proxy 
+
+        //会进行深度的响应式
         this._state = reactive({
             data: options.state()
         })
@@ -77,25 +32,28 @@ class Store {
         // get 
         return this._state.data
     }
+    // type 是一个字符串，代表你想要触发的 mutation 的类型。
+    // payload 是一个灵活的数据载体，它可以是任何你需要传递给 mutation 或 action 的额外参数。
+    //执行mutation中的方法
     commit = (type, payload)  => {
         const entry = this._mutations[type]
+        //使用短路运算符,确保找到了才执行,更加简洁,运行速度更快
         entry && entry(this.state, payload)
     }
 
+    //执行action中的方法
     dispatch(type, payload) {
         const entry = this._actions[type]
         return entry && entry(this, payload)
     }
 
+    //该方法也就是在 main.js当中app.use(store)实际上就是调用该方法
     install(app) {
         // console.log(a)
         // 电台   发布者
         app.provide(STORE_KEY, this)
     }
 }
-// 单一状态树对象
-function createStore(options) {
-    return new Store(options);
-}
+
 
 export { createStore, useStore }

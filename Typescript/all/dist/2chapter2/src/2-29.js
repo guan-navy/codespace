@@ -1,8 +1,12 @@
-export default class DateUtil {
-    static formatDate() {
+var DateUtil = (function () {
+    function DateUtil() {
     }
-    static diffDateByDay() { }
-    static duffDateByHour() { }
-    static timeConversion() { }
-}
+    DateUtil.formatDate = function () {
+    };
+    DateUtil.diffDateByDay = function () { };
+    DateUtil.duffDateByHour = function () { };
+    DateUtil.timeConversion = function () { };
+    return DateUtil;
+}());
+export default DateUtil;
 DateUtil.formatDate();

@@ -1,0 +1,111 @@
+<template>
+  <div>
+    <input type="file" @change="uploadFile" />
+    <button @click="uploadFileStart">上传文件</button>
+  </div>
+</template>
+
+<script setup>
+    import { createApp, ref } from 'vue'
+
+
+    const uploadFile = ref(null)
+    const uploadChunkList = ref([])
+    
+
+    const handleChange = (e) => {
+      if (!e.target.files[0]) return
+      uploadFile.value = e.target.files[0]
+
+      console.log(e.target.files[0]);
+    }
+
+
+    const createChunk = (file, size = 3 * 1024 * 1024) => {
+      const chunkList = []
+      let cur = 0
+      while (cur < file.size) {
+        chunkList.push({file: file.slice(cur, cur + size)})  // Blob 类型上的slice
+        cur += size
+      }
+      return chunkList
+    }
+
+    
+    const handleUpload = () => {
+      if (!uploadFile.value) return
+      const chunkList = createChunk(uploadFile.value)
+      // console.log(chunkList);
+      uploadChunkList.value = chunkList.map(({ file }, index) => {
+        return {
+          file,
+          size: file.size,
+          percent: 0,
+          chunkName: `${uploadFile.value.name}-${index}`,
+          fileName: uploadFile.value.name,
+          index
+        }
+      })
+      console.log(uploadChunkList.value);
+      // 发请求 把切片一个一个的给后端
+      uploadChunks()
+    }
+
+    const uploadChunks = () => {  // 上传切片
+      const formateList = uploadChunkList.value.map(({ file, fileName, index, chunkName }) => {
+        const formData = new FormData() // 创建表单格式的数据流
+        formData.append('file', file)
+        formData.append('fileName', fileName)
+        formData.append('chunkName', chunkName)  // 将切片转换成了表单数据流
+        return { formData, index }
+      })
+
+      console.log(formateList);
+
+      const requestList = formateList.map(({ formData, index }) => { // 发接口请求
+        return requestUpload({
+          url: 'http://localhost:3000/upload',
+          data: formData,
+          onUploadProgress: createProgress(uploadChunkList.value[index])
+        })
+      })
+
+      // 发送合并切片请求
+      Promise.all(requestList).then(mergeChunks)
+
+    }
+
+    // 合并切片
+    const mergeChunks = () => {
+      requestUpload({
+        url: 'http://localhost:3000/merge',
+        data: JSON.stringify({
+          fileName: uploadFile.value.name,
+          size: 3 * 1024 * 1024
+        })
+      })
+    }
+
+
+    // 封装一个请求  axios天生支持我们在请求请传入onUploadProgress回调函数
+    const requestUpload = ({url, method='post', data, headers={}, onUploadProgress = (e) => e}) => {
+      return new Promise((resolve, reject) => {
+        axios[method](url, data, { headers, onUploadProgress })
+          .then(res => {
+            resolve(res)
+          })
+          .catch(err => {
+            reject(err)
+          })
+      })
+    }
+    
+    // 上传的进度
+    const createProgress = (item) => {
+      return (e) => {
+        item.percent = parseInt(String(e.loaded / e.total) * 100)
+      }
+    }
+</script>
+
+<style lang="css" scoped></style>

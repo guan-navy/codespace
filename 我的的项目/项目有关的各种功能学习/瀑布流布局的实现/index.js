@@ -10,15 +10,17 @@ function imgLayout(container, imgBox) {
   var parentWidth = parent.offsetWidth;
   //获取到当前图片的宽度
   var imgWidth = imgBoxArr[0].offsetWidth;
-  //    console.log(parentWidth,imgWidth);
+  
   // 获取一行可以放多少张图片
   const num = Math.floor(parentWidth / imgWidth);
-  console.log(num);
+ 
 
   //开始放置操作
-  startLayout(imgBoxArr, num,imgWidth);
+  startLayout(imgBoxArr, num);
 }
-function startLayout(arr, num,imgW) {
+function startLayout(arr, num) {
+    //图片容器宽度
+    const imgW = arr[0].offsetWidth
   //定义一个高度数组来存储高度
   var heightArr = [];
   for (let index = 0; index < arr.length; index++) {

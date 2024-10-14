@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件捕获拦截示例</title>
+    <style>
+        #container {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            padding: 10px;
+        }
+        #targetButton {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    Click anywhere inside the container or on the button.
+    <button id="targetButton" onclick="openPage()">Open Page</button>
+</div>
+
+<script>
+    function openPage() {
+        console.log("原本应该打开新的页面，但由于事件被捕获并阻止，所以不会发生");
+    }
+
+    const container = document.getElementById('container');
+
+    // 添加捕获阶段的事件监听器
+    container.addEventListener('click', function(event) {
+        // 判断事件是否发生在容器内但不是在按钮上
+        if (event.target !== document.getElementById('targetButton')) {
+            console.log("非按钮区域点击事件被捕获并阻止");
+
+            // 阻止事件继续传播（包括冒泡和捕获），并阻止按钮的默认行为
+            event.stopPropagation();
+            event.preventDefault();
+
+            // 可以在这里执行自己的逻辑，例如显示提示信息
+            alert("点击的是容器内非按钮区域，原点击行为已被阻止！");
+        }
+    }, true); // 注意这里的第三个参数为true，表示在捕获阶段触发
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "langchain",
+  "version": "1.0.0",
+  "description": "- 简历要有所表现\r     - AIGC\r     了解OPENAI相关接口和LLM的应用,在接触langchain AI应用框架",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencys": {
+    "openai": "^3.3.0",
+    "langchain": "^1.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -3,7 +3,7 @@
 //但是如果将类型增加undefined的话，就不会报错了
 //同样在tsconfig.json配置文件当中，将strictNullChecks设置为false，就不会报错了（做法不值得提倡）
 
-{
+
     let a: number|undefined;
     console.log(a);
     //函数参数增加可选 可选符号的行为
@@ -16,7 +16,7 @@
         console.log(a);
     }
     //可选参数在处理的时候
-    function fn2(a?:string){
+    function fn2182(a?:string){
         a!.toString ()
         if(a){
             a.toString()
@@ -24,10 +24,9 @@
     }
     fn()
     fn1(1)
-    fn2()
+    fn2182()
     // 报错
     // fn1(undefined)
 
 
     //哪些数据类型可以接受undefined，面试题
-}

@@ -141,6 +141,8 @@ const submitLogin =async()=>{
     })
     console.log('后端返回数据',res);
     sessionStorage.setItem('token',JSON.stringify(res.data.username))
+    localStorage.setItem('token', res.token);
+
     setTimeout(()=>{
         router.push('/')
     },500)

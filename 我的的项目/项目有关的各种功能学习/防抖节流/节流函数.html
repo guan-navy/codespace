@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮</button>
+    <script>
+        let btn = document.querySelector('button')
+        function sendMsg(e) {
+            const currentDate = new Date()
+            console.log('sendMsg的this指向是',this,'\n','点击事件传递进来的参数时',e,'\n',currentDate.toLocaleString())
+        }
+        // btn.addEventListener('click',throttle(sendMsg,1000))
+        btn.addEventListener('click',sendMsg)
+        function throttle(fn,wait) {
+            let preTime = Date.now()
+            return function () {
+                let nowTime = Date.now()
+                if (nowTime - preTime >= wait) {
+                    fn.apply(this,arguments)
+                    preTime = nowTime
+                }
+            }
+        }
+    </script>
+</body>
+</html>

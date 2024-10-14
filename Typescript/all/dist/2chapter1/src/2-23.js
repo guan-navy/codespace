@@ -1,5 +1,5 @@
 "use strict";
-let personOrStudent = {
+var personOrStudent = {
     name: "Tom",
     age: 25,
     grade: 1,

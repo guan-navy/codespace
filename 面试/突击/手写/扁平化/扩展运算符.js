@@ -1,0 +1,11 @@
+let arr = [1, [2, 3], [4, [5, 6, [7, 8]]]];
+function flatten(arr,depth = 1) {
+  return arr.reduce((acc, cur) => {
+    if (Array.isArray(cur)&&depth>0) {
+      return [...acc, ...flatten(cur,depth - 1)];
+    } else {
+      return [...acc, cur];
+    }
+  }, []);
+}
+console.log(flatten(arr)); // [1, 2, 3, 4, 5, 6, 7, 8]

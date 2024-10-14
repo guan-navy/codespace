@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual List with Vue 3</title>
+    <!-- 引入 Vue 3 CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      .list-container {
+        height: 300px; /* 列表容器高度 */
+        overflow-y: auto; /* 垂直滚动 */
+      }
+      .list-item {
+        height: 30px; /* 每个列表项的高度 */
+        line-height: 30px;
+        border-bottom: 1px solid #ccc; /* 列表项之间的分隔线 */
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="list-container" ref="listContainer" @scroll="handleScroll">
+        <div :style="{height: totalHeight + 'px'}"></div>
+        <!-- 占位符，用于撑开滚动区域的高度 -->
+        <div
+          v-for="(item, index) in visibleItems"
+          :key="startIndex + index"
+          class="list-item"
+        >
+          {{ startIndex + index }}
+        </div>
+      </div>
+    </div>
+    <script>
+      const { ref, onMounted, onBeforeMount, computed } = Vue;
+
+      const App = {
+        setup() {
+          const totalItems = 1000; // 总数据量
+          const itemHeight = 30; // 每个列表项的高度
+          const visibleItemCount = 10; // 可见的列表项数量
+
+          const startIndex = ref(0); // 可见区域内第一个列表项的索引
+
+          // 计算总高度
+          const totalHeight = computed(() => totalItems * itemHeight);
+
+          // 更新可见的列表项
+          const updateVisibleItems = () => {
+            const offset =
+              Math.floor(startIndex.value / visibleItemCount) *
+              visibleItemCount;
+            const endIndex = Math.min(offset + visibleItemCount, totalItems);
+            return Array.from(
+              { length: endIndex - offset },
+              (_, index) => offset + index
+            );
+          };
+
+          const visibleItems = computed(() => updateVisibleItems());
+
+          // 处理滚动事件
+          const handleScroll = () => {
+            const scrollTop = event.target.scrollTop;
+            startIndex.value = Math.floor(scrollTop / itemHeight);
+          };
+
+          return {
+            totalHeight,
+            startIndex,
+            visibleItems,
+            handleScroll,
+          };
+        },
+      };
+
+      Vue.createApp(App).mount("#app");
+    </script>
+  </body>
+</html>

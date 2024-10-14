@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Capture and Bubbling Demo</title>
+</head>
+<body>
+    <div id="a" style="background-color: lightgreen; padding: 10px;">
+        Container A
+        <div id="b" style="background-color: lightblue; padding: 10px;">
+            Container B
+            <div id="c" style="background-color: lightyellow; padding: 10px;">
+                Container C
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const a = document.getElementById('a');
+        const b = document.getElementById('b');
+        const c = document.getElementById('c');
+
+        // Add event listeners in capture phase
+        a.addEventListener('click', function(event) {
+            console.log('Capture: A0');
+            event.stopPropagation()
+            // event.stopImmediatePropagation()
+        }, true);
+        a.addEventListener('click', function(event) {
+            console.log('Capture: A1');
+            // event.stopPropagation()
+        }, true);
+
+        b.addEventListener('click', function(event) {
+            console.log('Capture: B');
+        }, true);
+
+        c.addEventListener('click', function(event) {
+            console.log('Capture: C');
+        }, true);
+
+        // Add event listeners on the target element
+        c.addEventListener('click', function(event) {
+            console.log('Target: C');
+        });
+
+        // Add event listeners in bubbling phase
+        c.addEventListener('click', function(event) {
+            console.log('Bubble: C');
+        });
+
+        b.addEventListener('click', function(event) {
+            console.log('Bubble: B');
+        });
+
+        a.addEventListener('click', function(event) {
+            console.log('Bubble: A');
+        });
+
+        
+    </script>
+</body>
+</html>

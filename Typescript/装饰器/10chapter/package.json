@@ -1,0 +1,25 @@
+{
+  "name": "10chapter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:build": "tsc -w",
+    "dev:start": "nodemon --watch dist/10-3/js --exec 'node ./dist/10-3/1ClassDecorator.js'",
+    "start": "concurrently \"npm:dev:build\" \"npm:dev:start\"",
+    "tsc": "tsc allchapter/10chapter/src/10-3/1ClassDecorator.ts --target ES5 -w --experimentalDecorators"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^20.12.8",
+    "concurrently": "^8.2.2",
+    "node": "^22.1.0",
+    "nodemon": "^3.1.0",
+    "ts": "^0.2.2"
+  },
+  "devDependencies": {
+    "tsx": "^4.9.1"
+  }
+}

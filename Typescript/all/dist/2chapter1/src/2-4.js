@@ -1,14 +1,14 @@
 "use strict";
-let myName = 'Tom';
+var myName = 'Tom';
 myName = 'Tom';
 console.log(myName);
-let myName2 = 'Tom';
+var myName2 = 'Tom';
 console.log(myName2);
-let tom = {
+var tom = {
     name: 'Tom',
     age: 25
 };
-let tom2 = {
+var tom2 = {
     name: 'Tom2',
     age: 25
 };

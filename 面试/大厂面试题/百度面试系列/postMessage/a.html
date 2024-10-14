@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>a.html</h2>
+    <iframe id="iframe" src="http://l27.0.0.1:5500/postMessage/b.html" frameborder="0"></iframe>
+    <script>
+        let iframe = document.getElementById("iframe");
+        iframe.onload = function() {
+            let data = {
+                name: '蜗牛',
+                age: 18
+            }
+            iframe.contentWindow.postMessage(JSON.stringify(data),'http://l27.0.0.1:5500/postMessage/b.html');
+        }
+    </script>
+</body>
+</html>

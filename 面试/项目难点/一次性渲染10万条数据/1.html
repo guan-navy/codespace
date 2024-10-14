@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="container"></ul>
+    <script>
+      const total = 20000;
+      let now = new Date();
+      console.log("开始的时间是", now);
+      let once = 200;
+      let page = total / once;
+      let index = 0;
+
+      let ul = document.getElementById("container");
+
+      function loop(curTotal) {
+        if (curTotal <= 0){
+            console.log("页面渲染结束事件间隔为", new Date() - now);
+            return;
+        } 
+        let pageCount = Math.min(curTotal, once);
+        window.requestAnimationFrame(()=>{
+          let fragment  = document.createDocumentFragment();//创建一个虚拟的文档片段  
+            for (let i = 0; i < pageCount; i++) {//每一次递归有限次的渲染
+            let li = document.createElement("li");
+            li.innerText = ~~(Math.random() * total);
+            fragment.appendChild(li);
+          }
+          ul.appendChild(fragment);
+          loop(curTotal - pageCount);
+        })
+        // setTimeout(() => {
+        //   for (let i = 0; i < pageCount; i++) {//每一次递归有限次的渲染
+        //     let li = document.createElement("li");
+        //     li.innerText = ~~(Math.random() * total);
+        //     ul.appendChild(li);
+        //   }
+        //   loop(curTotal - pageCount);
+        // }, 0);
+      }
+      loop(total);
+
+    
+    </script>
+  </body>
+</html>

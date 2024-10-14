@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="message">你好后端返回的数据是</div>
+    <script>
+      const message = document.getElementById("message");
+      document.addEventListener('keydown',(e)=>{
+        if(e.keyCode==13){
+          const sse = new EventSource("http://localhost:3000/sse");
+          sse.addEventListener("message",(e)=>{
+            message.innerHTML+= e.data;
+          })
+        }
+      })
+      </script>
+  </body>
+</html>

@@ -1,5 +1,8 @@
 "use strict";
-class Order {
-    printOrd() { }
-    static getCount() { }
-}
+var Order = (function () {
+    function Order() {
+    }
+    Order.prototype.printOrd = function () { };
+    Order.getCount = function () { };
+    return Order;
+}());

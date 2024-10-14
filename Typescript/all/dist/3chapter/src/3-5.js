@@ -1,3 +1,4 @@
 "use strict";
-const fs = require('fs');
-const lodash = require('lodash');
+var fs = require('fs');
+var lodash = require('lodash');
+console.log('qwe');

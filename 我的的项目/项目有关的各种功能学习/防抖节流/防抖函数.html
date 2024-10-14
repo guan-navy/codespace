@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">提交</button>
+    <script>
+        const btn = document.querySelector('button')
+        function sendMsg(msg) {
+            const currentDate = new Date();
+
+            console.log('sendMsg函数的this指向是',this,'\n','点击事件传递进来的参数是',msg,'\n',currentDate.toLocaleString())
+        }
+        
+        btn.addEventListener('click', debounce(sendMsg, 1000))//防抖函数
+        // btn.addEventListener('click', sendMsg)//没有防抖的话
+        function debounce(fn, delay) {
+            let timer
+            return function(){
+                let args = arguments
+                if(timer) clearTimeout(timer)
+                
+                timer = setTimeout(()=>{
+                    fn.call(this,...args )
+                },delay)
+                
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .v-scroll {
+        width: 300px;
+        height: 400px;
+        border: 1px solid #000;
+        margin: 100px 0 0 100px;
+        overflow-y: scroll;
+      }
+      li {
+        list-style: none;
+        padding-left: 20px;
+        height: 40px;
+        line-height: 40px;
+        border-bottom: 1px solid #d5cece;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="v-scroll" ref="scrollBox" @scroll="doScroll">
+        <ul>
+          <li v-for="(item, index) in currentList">
+            {{item}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      const { createApp, ref, onMounted, computed } = Vue;
+
+      createApp({
+        setup() {
+          const allList = ref([]); // 所有的数据
+          const getAllList = (count) => {
+            // 接口请求
+            for (let i = 0; i < count; i++) {
+              allList.value.push(`我是列表${allList.value.length + 1}项`);
+            }
+          };
+          getAllList(300);
+          console.log(allList.value);
+
+
+          // ----------------------------------------------------------------
+          const boxHeight = ref(0); // 可视区域高度
+          const itemHeight = ref(40); // 固定每一项的高度
+          const scrollBox = ref(null); // 可视区域容器
+          onMounted(() => {
+            //获取到容器高度
+            boxHeight.value = scrollBox.value.clientHeight;
+            // console.log(scrollBox.value.clientHeight);
+          });
+          //计算能够放置多少个子元素
+          const itemNum = computed(() => {
+            
+            //当父容器并不是整数的时候,上下可以都会出现子容器的一部分
+            return ~~(boxHeight.value / itemHeight.value) + 2;
+          });
+
+          // 页面滚动事件触发的回调函数,获取startIndex
+          const startIndex = ref(0); // 初始化可视区域内的第一项
+          const doScroll = () => {
+              // console.log(scrollBox.value.scrollTop);
+            //滚出去多少项,拿滚动的距离除以每一项的高度 ,来确定现在滚动到第几项了,来确定开始的下标
+            const index = ~~(scrollBox.value.scrollTop / itemHeight.value); //向下取整
+            if (index === startIndex.value) return;
+            startIndex.value = index;
+            console.log( `滑出了${index}个`);
+            
+          };
+
+          const endIndex = computed(() => {
+            // 可视区域内的最后项下标
+            let index = startIndex.value + itemNum.value*2 -1  ; // 上下还需要不显示的列表项
+            if (!allList.value[index]) {
+              //超出数组长度
+              index = allList.value.length - 1;
+            }
+            return index;
+          });
+
+          // 拿到真正要能被渲染的数据
+          //itemNum根据高度计算出来要展示的数目
+          const currentList = computed(() => {
+          
+            console.log(`起始下标${startIndex.value}终止下标${endIndex.value}`);
+           console.log(allList.value.slice(startIndex.value, endIndex.value ));
+            return allList.value.slice(startIndex.value, endIndex.value );
+
+          });
+
+          return {
+            allList,
+            currentList,
+            boxHeight,
+            itemHeight,
+            scrollBox,
+            doScroll,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

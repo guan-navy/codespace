@@ -7,8 +7,8 @@ function dataFlowAnalysisWithNever(data) {
         console.log(data.toFixed(2));
     }
     else {
-        let data1 = data;
-        console.log(data1);
+        var data1_1 = data;
+        console.log(data1_1);
     }
 }
 dataFlowAnalysisWithNever('免税');

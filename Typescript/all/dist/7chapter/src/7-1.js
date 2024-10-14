@@ -6,7 +6,7 @@ var MessageType;
     MessageType[MessageType["audio"] = 3] = "audio";
     MessageType[MessageType["video"] = 4] = "video";
 })(MessageType || (MessageType = {}));
-let message = [
+var message = [
     {
         id: 1,
         type: MessageType.text,
@@ -28,12 +28,12 @@ let message = [
         sendmessage: "送你一朵花"
     }
 ];
-function searchMsg(condition) {
+function searchMsg71(condition) {
     if (typeof condition === "number") {
-        return message.find(item => item.id === condition);
+        return message.find(function (item) { return item.id === condition; });
     }
     else {
-        return message.filter(item => item.type === condition);
+        return message.filter(function (item) { return item.type === condition; });
     }
 }
-searchMsg(1).sendmessage;
+searchMsg71(1).sendmessage;

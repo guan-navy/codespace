@@ -1,4 +1,5 @@
 const Router = require("@koa/router");
+const jwt = require("../utils/jwt.js");
 const router = new Router();
 const {
   userLogin,
@@ -15,15 +16,18 @@ const {
 router.post("/login", async (ctx) => {
   //获取到前端传递的账号和密码,去数据库中校验账号密码的正确性
   const { username, password } = ctx.request.body;
+  const token =  jwt.sign(ctx.request.body)
+  // console.log(token);
   try {
     const result = await userLogin(username, password);
     console.log("输入", username, password);
-    console.log("数据库查询结果是", result);
+    // console.log("数据库查询结果是", result);
     if (result.length === 0) {
       ctx.body = {
         code: "8001",
         data: "error",
         msg: "账号或密码错误",
+        
       };
     } else {
       let data = {
@@ -34,6 +38,7 @@ router.post("/login", async (ctx) => {
         code: "8000",
         data,
         msg: "登录成功",
+        token
       };
     }
   } catch (e) {
@@ -51,7 +56,7 @@ router.post("/register", async (ctx) => {
   try {
     const { username, password } = ctx.request.body;
     const result = await useRegister(username, password);
-    console.log(result);
+    // console.log(result);
     if (result.affectedRows === 1) {
       ctx.body = {
         code: "8000",
@@ -85,13 +90,22 @@ router.post("/register", async (ctx) => {
 });
 
 //定义获取用户购物信息
-router.get("/getCart", async (ctx) => {
+router.get("/getCart",jwt.verify(), async (ctx) => {
+  console.log('执行获取购物车');
+  // ctx.body={
+  //   code: "8000",
+  //   data: "success",
+  //   msg: "获取成功",
+  // };
+  
   try {
     const username = ctx.query.username; //获取前端传递的参数
+    console.log('要查询的购物车用户名是',username);
     const cartInfo = await getCartInfo(username);
     const cartAmount = await getCartAmount(username);
     console.log(cartInfo);
     if (cartInfo.length === 0) {
+      console.log('购物车为空');
       ctx.body = {
         code: "8001",
         data: {
@@ -100,7 +114,10 @@ router.get("/getCart", async (ctx) => {
         },
         msg: "该用户购物车为空",
       };
+    console.log(ctx.body);
+
     } else {
+      console.log('购物车不为空');
       ctx.body = {
         code: "8000",
         data: {
@@ -109,6 +126,8 @@ router.get("/getCart", async (ctx) => {
         },
         msg: "获取成功",
       };
+    console.log(ctx);
+
     }
   } catch (error) {
     console.log(error);
@@ -117,6 +136,8 @@ router.get("/getCart", async (ctx) => {
       data: "error",
       msg: "服务器异常",
     };
+    console.log(ctx);
+
   }
 });
 
@@ -132,6 +153,7 @@ router.post("/insertCart", async (ctx) => {
         data: username,
         msg: "添加成功",
       };
+      console.log("添加成功");
     }
     if (result.affectedRows === 0) {
       ctx.body = {
@@ -139,6 +161,7 @@ router.post("/insertCart", async (ctx) => {
         data: "error",
         msg: "添加失败",
       };
+      console.log("添加失败");
     }
   } catch (error) {
     console.log(error);

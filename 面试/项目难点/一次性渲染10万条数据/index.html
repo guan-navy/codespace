@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="container"></ul>
+    <script>
+      let now = new Date();
+      console.log("开始的时间是", now);
+
+      const total = 20000;
+
+      new Promise((resolve, reject) => {
+        let ul = document.getElementById("container");
+        let i = 0;
+        for (i; i < total; i++) {
+          let li = document.createElement("li");
+          li.innerText = ~~(Math.random() * total);
+          ul.appendChild(li);
+          if (i === total - 1) {
+            resolve("test");
+          }
+        }
+      }).then((val) => {
+        console.log("js计算结束间隔为", new Date() - now);
+      });
+      setTimeout(() => {
+        console.log("页面渲染结束事件间隔为", new Date() - now);
+      }, 0);
+    </script>
+  </body>
+</html>

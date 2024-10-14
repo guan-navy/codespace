@@ -1,3 +1,4 @@
-let b = 2
 
-export default b+1
+const b = 2
+
+export default b + 2

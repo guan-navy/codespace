@@ -1,2 +1,2 @@
 "use strict";
-const symid = Symbol('id');
+var symid = Symbol('id');

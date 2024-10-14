@@ -1,12 +1,12 @@
-{
+
     //为什么需要函数重载好处
-type Message =
+type Message72 =
 {
     id:number,
-    type:MessageType,
+    type:MessageType72,
     sendmessage:string
 }
-enum MessageType{
+enum MessageType72{
 "image"= "image", 
 "text"= "text",
 "audio"= "audio",
@@ -14,25 +14,25 @@ enum MessageType{
 
 
 }
-let message:Message[]=[
+let message72:Message72[]=[
 {
     id:1,
-    type:MessageType.text,
+    type:MessageType72.text,
     sendmessage:"hello"
 },
 {
     id:2,
-    type:MessageType.video,
+    type:MessageType72.video,
     sendmessage:"hello"
 },
 {
     id:3,
-    type:MessageType.audio,
+    type:MessageType72.audio,
     sendmessage:"朝辞白帝彩云间"
 },
 {
     id:4,
-    type:MessageType.image,
+    type:MessageType72.image,
     sendmessage:"送你一朵花"
 }
 ]
@@ -51,4 +51,3 @@ if(typeof condition==="number"){
 searchMsg(1)
 searchMsg(MessageType.image)
 
-}    

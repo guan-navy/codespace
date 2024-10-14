@@ -35,7 +35,7 @@ let message:Message[]=[
     }
 ]
 
-function searchMsg(condition:MessageType|number):Message|Message[]|undefined{
+function searchMsg71(condition:MessageType|number):Message|Message[]|undefined{
     if(typeof condition==="number"){
         return message.find(item=>item.id===condition)
     }else{
@@ -44,7 +44,7 @@ function searchMsg(condition:MessageType|number):Message|Message[]|undefined{
 }
 //没有快捷提示,使用断言
 //  (searchMsg(MessageType.image) as Message[]).concat
- (searchMsg(1) as Message).sendmessage
+ (searchMsg71(1) as Message).sendmessage
 
 //当一个函数接受多种类型的参数的话,因为类型守卫的返回值并不会相同,最后处理函数的返回结果的话呢
 // 需要对返回值类型进行判断,然后使用as 进行类型断言才能有自动提示

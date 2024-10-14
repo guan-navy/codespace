@@ -1,4 +1,4 @@
-let cust = {
+var cust = {
     name: 'zhangsan',
     age: 18
 };

@@ -1,5 +1,5 @@
 
-{
+
     let data:Object = new Set<string>()
     // data = null
     console.log(data);
@@ -22,11 +22,11 @@
         age:number
     }
     type Obj3 = Obj1 & Obj2
-    let obj:Obj3 = {
+    let obj27:Obj3 = {
         name:'123',
         age:123
     }
-    console.log(obj);
+    console.log(obj27);
     //字面量类型
     // 限制函数使用的时候传入参数的范围
     type num = 1 | 2 | 3
@@ -39,4 +39,3 @@
     }
     isStartUp(2)
     
-}

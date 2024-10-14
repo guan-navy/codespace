@@ -15,11 +15,13 @@ getters:{
         return state.count*2
     }
 },
+//同步
 mutations:{ 
     add(state){
         state.count++;
     }
 },
+//异步操作
 actions:{
     asyncAdd({commit}){
         setTimeout(()=>{

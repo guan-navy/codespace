@@ -1,12 +1,13 @@
 "use strict";
-class ArrayList64 {
-    constructor() {
+var ArrayList64 = (function () {
+    function ArrayList64() {
         this.arr = [];
     }
-    add(ele) {
+    ArrayList64.prototype.add = function (ele) {
         this.arr.push(ele);
-    }
-    get(index) {
+    };
+    ArrayList64.prototype.get = function (index) {
         return this.arr[index];
-    }
-}
+    };
+    return ArrayList64;
+}());

@@ -6,9 +6,18 @@ const axiosObj = axios.create({
   baseURL: 'http://localhost:3000',
   timeout: 2000
 })
-// 这段代码是为了让axios发送post请求时，自动加上请求头
-axios.defaults.headers.post["Content-Type"] = "application/json";
 
+
+
+// 请求拦截
+axiosObj.interceptors.request.use(config => {
+  console.log('请求拦截',config);
+  let token = localStorage.getItem('token')
+  if (token) {
+    config.headers.Authorization = token
+  }
+  return config
+})
 // 响应拦截,响应中间件
 axiosObj.interceptors.response.use((res)=>{
 

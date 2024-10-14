@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+    <button id="button">请狠狠点我</button>
+    <script>
+        const button = document.getElementById("button");
+        
+        // 定义防抖函数
+        const debounceFn = debounce(a, 1000);
+        
+        // 将防抖函数作为事件处理程序
+        button.addEventListener("click", () => debounceFn(1, 2));
+
+        function a(a, b) {
+            console.log(a + b);
+        }
+
+        function debounce(fn, delay = 0) {
+            let timer;
+            return function (...args) {
+                clearTimeout(timer);
+                timer = setTimeout(() => {
+                    fn.apply(this, args);
+                }, delay);
+            };
+        }
+
+        function throttle(fn, delay = 0) {
+            let timer;
+            return function (...args) {
+                if (!timer) {
+                    timer = setTimeout(() => {
+                        fn.apply(this, args);
+                        timer = null;
+                    }, delay);
+                }
+            };
+        }
+    </script>
+</body>
+</html>

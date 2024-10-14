@@ -1,14 +1,16 @@
 "use strict";
-class Dog {
-    constructor(name) {
+var Dog = (function () {
+    function Dog(name) {
         this.dogName = name;
     }
-}
-class Cat {
-    constructor(name) {
+    return Dog;
+}());
+var Cat = (function () {
+    function Cat(name) {
         this.catName = name;
     }
-}
+    return Cat;
+}());
 function isDog(viriety) {
     return viriety instanceof Dog;
 }

@@ -2,11 +2,14 @@
 function foo(x) {
     return x;
 }
-let obj = { username: "wangwu", age: 23 };
-const username = 'username';
+var obj = { username: "wangwu", age: 23 };
+var username = 'username';
 obj[username];
-class Person34 {
-}
+var Person34 = (function () {
+    function Person34() {
+    }
+    return Person34;
+}());
 function foo1(x) {
     if (x > 0) {
         return x;

@@ -10,6 +10,7 @@
           <el-menu-item index="2-2">一级菜单2</el-menu-item>
           <el-menu-item index="2-3">一级菜单3</el-menu-item>
           <el-sub-menu index="2-4">
+
             <template #title>一级菜单4</template>
             <el-menu-item index="2-4-1">二级菜单1</el-menu-item>
             <el-menu-item index="2-4-2">二级菜单2</el-menu-item>
@@ -26,14 +27,15 @@
     <div class="right">
       <div class="search">
         <div class="search-element">
-          <el-input v-model="inputValue" class="w-50 m-2 el-search-input" placeholder="搜索你感兴趣的书籍或作者" style="height: 40px"
-            maxlength="30">
+          <el-input v-model="inputValue" class="w-50 m-2 el-search-input" placeholder="搜索你感兴趣的书籍或作者"
+            style="height: 40px" maxlength="30">
+
             <template #suffix>
               <div class="search-icon">
                 <el-icon class="el-input__icon cancel" v-show="showCancel" @click="clearInputContent">
                   <CircleCloseFilled />
                 </el-icon>
-                <el-icon class="el-input__icon" @click="searchBarRequest">
+                <el-icon class="el-input__icon" @click=" debounceRequest">
                   <Search />
                 </el-icon>
 
@@ -60,6 +62,7 @@
 </template>
 
 <script setup>
+import { debounce } from 'lodash-es' //使用lodash的cloneDeep方法
 import { ref, computed } from 'vue';
 import { Search, CircleCloseFilled } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router';
@@ -68,6 +71,17 @@ import { useBookStore } from '@/stores';
 const username = JSON.parse(sessionStorage.getItem('token'))
 const bookStore = useBookStore()
 const route = useRouter()
+//自己定义的简单的防抖节流函数
+// function debounce(fn, delay) {
+//   let timer = null
+//   return function () {
+//     if (timer) clearTimeout(timer)
+//     console.log("触发了防抖");
+//     timer = setTimeout(() => {
+//       fn.apply(this, arguments)
+//     }, delay)
+//   }
+// }
 const searchBarRequest = () => {
   if (inputValue.value !== '') {
     console.log('搜索');
@@ -75,12 +89,13 @@ const searchBarRequest = () => {
     bookStore.getBookByName(inputValue.value)
     bookStore.getBookByAuthor(inputValue.value)
     route.push({
-      path:'/search',
+      path: '/search',
     })
   }
 
 
 }
+const debounceRequest = debounce(searchBarRequest,500)
 const showCancel = computed(() => {
 
   return inputValue.value.length > 0;
@@ -127,9 +142,10 @@ const isShowUserPanel = ref(false)
 </script>
 
 <style lang="scss" scoped>
-a{
+a {
   text-decoration: none;
 }
+
 //输入框样式
 .el-search-input {
   --el-color-primary: #f0f0f0;
@@ -207,10 +223,12 @@ img {
           height: 200px;
           background-color: #fff;
           z-index: 100;
-          .name{
+
+          .name {
             margin-top: 20px;
             text-align: center;
           }
+
           .logout {
             position: absolute;
             bottom: 0;

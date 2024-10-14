@@ -1,0 +1,62 @@
+<mxfile host="app.diagrams.net" modified="2024-03-06T07:38:16.115Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="9QhJIt6GxU14o_6jaPJ0" version="24.0.1" type="device">
+  <diagram name="第 1 页" id="9L8XWt2ROBj7082GzTNE">
+    <mxGraphModel dx="1064" dy="626" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="CspmdkoxVYJMzccDdIXx-1" value="&lt;font style=&quot;font-size: 21px;&quot;&gt;btn&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="80" y="240" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CspmdkoxVYJMzccDdIXx-3" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="129.5" y="160" as="sourcePoint" />
+            <mxPoint x="129.5" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CspmdkoxVYJMzccDdIXx-4" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;连续触发事件&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="CspmdkoxVYJMzccDdIXx-3">
+          <mxGeometry x="-0.731" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CspmdkoxVYJMzccDdIXx-5" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="180" as="sourcePoint" />
+            <mxPoint x="280" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CspmdkoxVYJMzccDdIXx-15" value="触发" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="CspmdkoxVYJMzccDdIXx-5">
+          <mxGeometry x="-0.0204" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CspmdkoxVYJMzccDdIXx-6" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;触发事件，要执行的逻辑&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="366" y="340" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CspmdkoxVYJMzccDdIXx-7" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="280" y="130" width="250" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="CspmdkoxVYJMzccDdIXx-8" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;防抖函数包裹&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="354" y="90" width="128" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CspmdkoxVYJMzccDdIXx-9" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="302" y="200" width="206" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="CspmdkoxVYJMzccDdIXx-13" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;定时器timer，等待delay之后执行&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="346" y="220" width="144" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CspmdkoxVYJMzccDdIXx-14" value="如果定时器存在则清空，否则创建" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="319" y="140" width="198" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="CspmdkoxVYJMzccDdIXx-16" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" target="CspmdkoxVYJMzccDdIXx-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="630" y="285" as="sourcePoint" />
+            <mxPoint x="680" y="235" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CspmdkoxVYJMzccDdIXx-17" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;使用闭包保证多次调用timer的一致性&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="640" y="250" width="140" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

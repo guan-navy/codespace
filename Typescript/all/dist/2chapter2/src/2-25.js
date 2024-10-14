@@ -1,2 +1,2 @@
 "use strict";
-const arry = [1, 2, 3];
+var arry = [1, 2, 3];

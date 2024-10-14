@@ -1,12 +1,13 @@
 "use strict";
-class ArrayList {
-    constructor() {
+var ArrayList = (function () {
+    function ArrayList() {
         this.arr = [];
     }
-    add(ele) {
+    ArrayList.prototype.add = function (ele) {
         this.arr.push(ele);
-    }
-    get(index) {
+    };
+    ArrayList.prototype.get = function (index) {
         return this.arr[index];
-    }
-}
+    };
+    return ArrayList;
+}());

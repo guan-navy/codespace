@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">Click Me</button>
+    <script>
+      let btn = document.getElementById("btn");
+      btn.addEventListener("click", jieliu(printContent,1000));
+      function printContent() {
+        console.log("Hello World");
+      }
+      //防抖函数
+      function fangdou(fn, delay) {
+        let timer = null;
+        return function () {
+          if (!timer) {
+            timer = setTimeout(() => {
+              fn.apply(this, arguments);
+              timer = null; //清除闭包的内存泄露
+            }, delay);
+          } else {
+            // 定时器被重新设置
+            clearTimeout(timer);
+            
+            timer = setTimeout(() => {
+              fn.apply(this, arguments);
+              timer = null; //清除闭包的内存泄露
+            }, delay);
+          }
+        };
+      }
+     //节流函数
+      function jieliu(fn,wait){
+        let preTime = Date.now() 
+        return function(){
+          let nowTime = Date.now()
+          
+          if(nowTime-preTime>wait){
+           
+            fn.apply(this,arguments)
+            preTime = nowTime
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
