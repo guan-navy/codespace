@@ -18,3 +18,8 @@
 ## 缺点
  1. 无法拷贝undefined, function ,symbol ,bigint
  2. 无法处理循环引用
+
+
+# 眼前一亮的深拷贝方法
+使用管道通信的方式
+使用postchannel

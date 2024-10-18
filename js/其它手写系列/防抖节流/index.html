@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <button id="button">请狠狠点我</button>
+  </head>
+  <body>
+    <button id="debounce">我是防抖请狠狠点我</button>
+    <button id="throttle">我是节流请狠狠点我</button>
     <script>
-        const button = document.getElementById("button");
-        
-        // 定义防抖函数
-        const debounceFn = debounce(a, 1000);
-        
-        // 将防抖函数作为事件处理程序
-        button.addEventListener("click", () => debounceFn(1, 2));
+      const debBtn = document.getElementById("debounce");
+      const thrBtn = document.getElementById("throttle");
 
-        function a(a, b) {
-            console.log(a + b);
-        }
+      function debounce(fn, delay) {
+        let timer = null;
+        return function (...args) {
+          if (timer) {
+            clearTimeout(timer);
+          }
+          timer = setTimeout(() => {
+            fn.apply(this, args);
+          }, delay);
+        };
+      }
+      function throttle(fn, delay) {
+        let fastCall = 0;
+        return function (...args) {
+          const now = Date.now();
+          if (now - fastCall >= delay) {
+            fastCall = now;
+            fn.apply(this, args);
+          }
+        };
+      }
+    //   const a = () => {
+    //     console.log("测试");
 
-        function debounce(fn, delay = 0) {
-            let timer;
-            return function (...args) {
-                clearTimeout(timer);
-                timer = setTimeout(() => {
-                    fn.apply(this, args);
-                }, delay);
-            };
-        }
+    //     console.log(this);
+    //   };
+      function a() {
+        console.log("测试");
 
-        function throttle(fn, delay = 0) {
-            let timer;
-            return function (...args) {
-                if (!timer) {
-                    timer = setTimeout(() => {
-                        fn.apply(this, args);
-                        timer = null;
-                    }, delay);
-                }
-            };
-        }
+console.log(this);
+      }
+      debBtn.addEventListener('click',debounce(a,1000).bind({a:1}))
+      thrBtn.addEventListener('click',throttle(a,1000))
     </script>
-</body>
+  </body>
 </html>
