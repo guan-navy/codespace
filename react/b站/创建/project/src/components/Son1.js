@@ -1,5 +1,5 @@
 import React from "react";
-import propTypes from 'prop-types'
+
 
 class Son1 extends React.PureComponent{
 

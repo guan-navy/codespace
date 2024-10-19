@@ -4,6 +4,8 @@ import React from "react";
 import Son from './components/Son';
 import Son1 from './components/Son1';
 import ShowCSS from './components/ShowCss/ShowCss';
+import Life from './components/lifeCycle/Life';
+import Project1 from './components/project1/Project1'
 const testThis = () => {
   console.log(this);
 };
@@ -222,6 +224,15 @@ class App extends React.PureComponent {
         <h1>css</h1>
         <ShowCSS></ShowCSS>
       </div>
+      <br />
+      <br />
+      <h1>生命周期组件</h1>
+     <Life></Life>
+      <br />
+      <br />
+      <h1>小项目</h1>
+
+      <Project1></Project1>
       </div>
     );
   }
