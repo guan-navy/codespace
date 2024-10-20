@@ -5,10 +5,23 @@ import Son from './components/Son';
 import Son1 from './components/Son1';
 import ShowCSS from './components/ShowCss/ShowCss';
 import Life from './components/lifeCycle/Life';
-import Project1 from './components/project1/Project1'
+// import Project1 from './components/project1/Project1'
+import Son2 from "./components/context传值/Son2";
+import ShowDom from "./components/dom操作/ShowDom";
+import ShowFn from "./components/函数组件/ShowFn";
+import TestHoc from "./components/高阶组件/TestHoc";
+import Normal from "./components/高阶组件/Normal";
+import MemoHoc from "./components/高阶组件/MemoHoc";
+const ProcessedComponent =TestHoc(Normal)
+// const ProcessedComponent = MemoHoc(Normal)
+
+
 const testThis = () => {
   console.log(this);
 };
+// context传值
+export let Context1 = React.createContext()
+
 class App extends React.PureComponent {
   // 响应式数据
   state = {
@@ -24,7 +37,9 @@ class App extends React.PureComponent {
         { value: '4', label: '4' },
       ],
       infoToSon:'',
-      msg:''
+      msg:'',
+      passMsg:'父组件的消息'
+
   };
   foo(a, b) {
     console.log(a, b);
@@ -232,7 +247,27 @@ class App extends React.PureComponent {
       <br />
       <h1>小项目</h1>
 
-      <Project1></Project1>
+      {/* <Project1></Project1> */}
+      <br />
+      <br />
+      <h1>Dom操作</h1>
+      <ShowDom></ShowDom>
+      <br />
+      <br />
+      <h1>context传值</h1>
+      <Context1.Provider value={this.state.passMsg}>
+      <Son2></Son2>
+      </Context1.Provider>
+      
+      <br />
+      <br />
+      <h1>函数组件</h1>
+      <ShowFn></ShowFn>
+      <br />
+      <br />
+
+      <h1>高阶组件</h1>
+      <ProcessedComponent></ProcessedComponent>
       </div>
     );
   }
