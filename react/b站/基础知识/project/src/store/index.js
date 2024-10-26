@@ -1,5 +1,8 @@
-import { legacy_createStore as crecreateStore } from "redux";
-function mesReducer(state={msg:'hello'}, action) {
+import { combineReducers, legacy_createStore as crecreateStore } from "redux";
+// dispatch({type:'changeMsg', payload:'hello'})
+// playload 表示的是传递的参数
+//  一定要return state 并且展开解除引用
+function msgReducer(state={msg:'hello'}, action) {
   switch (action.type) {
     case 'changeMsg':
       return {
@@ -10,11 +13,32 @@ function mesReducer(state={msg:'hello'}, action) {
       
       return {
        ...state,
-        msg: action.payload
+        msg: 'hello'
       }
     default:
       return state;
   }
 }
-const store = crecreateStore(mesReducer, 0);
+function numReducer(state={num:0}, action) {
+  switch (action.type) {
+    case 'addNum':
+      return {
+    ...state,
+        num: state.num + action.payload
+      }
+    case'resetNum':
+
+      return {
+    ...state,
+        num: 0
+      }
+    default:
+      return state;
+  }
+}
+const reducer = combineReducers({
+   msgReducer,
+   numReducer,
+});
+const store = crecreateStore(reducer);
 export default store;
