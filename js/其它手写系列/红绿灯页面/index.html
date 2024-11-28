@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .traffic-light {
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.light {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: gray; /* 初始状态下，所有灯都是灰色 */
+  opacity: 0.3; /* 灯光默认较暗 */
+  transition: opacity 0.5s;
+}
+
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.green {
+  background-color: green;
+}
+
+/* 点亮时，增加透明度 */
+.active {
+  opacity: 1;
+}
+
+    </style>
+</head>
+<body>
+    <div class="traffic-light">
+        <div class="light red" id="red"></div>
+        <div class="light yellow" id="yellow"></div>
+        <div class="light green" id="green"></div>
+      </div>
+      
+</body>
+
+<script>
+    // 获取每个灯的元素
+const redLight = document.getElementById('red');
+const yellowLight = document.getElementById('yellow');
+const greenLight = document.getElementById('green');
+
+// 定义一个函数来切换灯的状态
+function switchLight(light) {
+  // 先关闭所有灯
+  redLight.classList.remove('active');
+  yellowLight.classList.remove('active');
+  greenLight.classList.remove('active');
+
+  // 打开指定的灯
+  light.classList.add('active');
+}
+
+// 定义红绿灯的循环过程
+function trafficLightSequence() {
+  setTimeout(() => {
+    switchLight(redLight); // 红灯亮
+  }, 0);
+
+  setTimeout(() => {
+    switchLight(greenLight); // 绿灯亮
+  }, 3000); // 红灯亮3秒后切换
+
+  setTimeout(() => {
+    switchLight(yellowLight); // 黄灯亮
+  }, 5000); // 绿灯亮2秒后切换
+
+  setTimeout(trafficLightSequence, 6000); // 黄灯亮1秒后重新开始循环
+}
+
+// 开始红绿灯循环
+trafficLightSequence();
+
+</script>
+</html>

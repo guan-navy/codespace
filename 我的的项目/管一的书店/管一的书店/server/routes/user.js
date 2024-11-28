@@ -1,5 +1,5 @@
 const Router = require("@koa/router");
-const jwt = require("../utils/jwt.js");
+
 const router = new Router();
 const {
   userLogin,
@@ -16,7 +16,7 @@ const {
 router.post("/login", async (ctx) => {
   //获取到前端传递的账号和密码,去数据库中校验账号密码的正确性
   const { username, password } = ctx.request.body;
-  const token =  jwt.sign(ctx.request.body)
+
   // console.log(token);
   try {
     const result = await userLogin(username, password);
@@ -90,7 +90,7 @@ router.post("/register", async (ctx) => {
 });
 
 //定义获取用户购物信息
-router.get("/getCart",jwt.verify(), async (ctx) => {
+router.get("/getCart", async (ctx) => {
   console.log('执行获取购物车');
   // ctx.body={
   //   code: "8000",
